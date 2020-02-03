@@ -46,6 +46,8 @@ class MainActivity : AppCompatActivity() {
         replace_fragment(FragmentHome())
     }
 
+
+
     fun replace_fragment(fragmentName:Fragment){
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.main_frame_layout,fragmentName)
