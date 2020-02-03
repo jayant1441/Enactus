@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutActivity"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_pink"
+            android:text="About PCOD"
+            android:textSize="45sp"
+            android:typeface="serif"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:textStyle="bold"/>
+
+
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Polycystic ovarian disease or syndrome (PCOD ) is a syndrome that has shaken modern world by storm . It is a common condition that affects a woman’s hormone levels. It is a must that young girls understand this disease at an early stage . Basically , PCOD is a problem that affects any women during their childbearing years (age 15 to 44). A large no. of women have PCOD but don’t know it. In one study, up to 70 percent of women with PCOD hadn’t been diagnosed . PCOD generally affects the ovaries and ovulation. The most common PCOD symptoms are:
+	• Irregular periods. 
+	• Heavy bleeding. 
+	• Hair growth. 
+	• Acne. 
+	• Weight gain. 
+	• Male-pattern baldness. 
+	• Darkening of the skin like on the neck, in the groin, and under the breasts.
+	• Headaches.
+It can also affect a woman’s health in many ways : infertility, metabolic syndrome, endometrial cancer, depression along with risk for pregnancy complications and miscarriage"
+            android:typeface="serif"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:textSize="17sp"
+            />
+
+    </LinearLayout>
+
+</ScrollView>

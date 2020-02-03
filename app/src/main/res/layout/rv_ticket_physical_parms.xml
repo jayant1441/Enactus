@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_Phy_param_param"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:text="Backpain"
+            android:textAlignment="center"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toTopOf="@+id/iv_physical_param_image_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_physical_param_image_color"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_physical_param_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@color/white"
+            android:translationZ="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_physical_param_image_color"
+            app:layout_constraintEnd_toEndOf="@+id/iv_physical_param_image_color"
+            app:layout_constraintStart_toStartOf="@+id/iv_physical_param_image_color"
+            app:layout_constraintTop_toTopOf="@+id/iv_physical_param_image_color" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</LinearLayout>

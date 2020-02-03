@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_about_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_pink"
+        android:text="title"
+        android:textSize="45sp"
+        android:typeface="serif"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tv_about_des"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="@string/about_des"
+        android:typeface="serif"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:textSize="17sp"
+        />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Sana - Reusable Sanitary Pads\nSaNa, an abbreviation for Sanitary Napkin, means comfort or softness. SaNa is a project initiated by Enactus Shivaji College under which resuable, biodegradable sanitary napkins are produced keeping in mind the health of women as well as our planet earth.
+Shockingly, even today a majority of women still use cloth instead of a proper sanitary napkin not because they are not aware, but because of the heavy prices of the pad.
+Enactus Shivaji willing  to tackle this problem, is  providing a solution by producing reusable sanitary napkins. Not only will the pads be pocket friendly but they will also keep the women healthier than usual by preventing diseases."
+        android:typeface="serif"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:textSize="17sp"
+        />
+
+</LinearLayout>
+
+</ScrollView>

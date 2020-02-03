@@ -1,13 +1,290 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.FragmentHome">
+    tools:context=".Fragments.FragmentHome"
+    android:orientation="vertical"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="General Info"
+        android:textStyle="bold"
+        android:textColor="@color/light_pink"
+        android:textSize="25sp"
+        android:layout_margin="10dp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/weight"
+            android:textAlignment="viewStart"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="95 Kg"
+            android:textColor="@color/light_pink"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:layout_alignParentEnd="true"
+            />
+    </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/height"
+                android:textAlignment="viewStart"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6'1 ft"
+                android:textColor="@color/light_pink"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                android:layout_alignParentEnd="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/sleep"
+                android:textAlignment="viewStart"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:30 am"
+                android:textColor="@color/light_pink"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                android:layout_alignParentEnd="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/period_women"
+                android:textAlignment="viewStart"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 jan"
+                android:textColor="@color/light_pink"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                android:layout_alignParentEnd="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_pink"
+        android:layout_margin="12dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Track Activities"
+        android:textStyle="bold"
+        android:textColor="@color/light_pink"
+        android:textSize="25sp"
+        android:layout_margin="10dp"/>
+
+
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/rv_home_fragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_margin="10dp"/>-->
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="22dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:background="@drawable/background_cardview"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:src="@drawable/pad"
+                    android:background="@color/yellow"
+                    android:padding="12dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Period"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Keep a track of yor period and ovulation."
+                    android:textSize="15sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15dp"/>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="22dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:background="@drawable/background_cardview"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:src="@drawable/water_cycle"
+                    android:background="@color/blue"
+                    android:padding="12dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Water"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Keep a track of your Hydration"
+                    android:textSize="15sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15dp"/>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="22dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:background="@drawable/background_cardview"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:src="@drawable/soul"
+                    android:background="@color/light_pink"
+                    android:padding="12dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Others"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Keep a track of your other activities"
+                    android:textSize="15sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15dp"/>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
 
 
 
-</FrameLayout>
+
+</LinearLayout>
+
+
+</ScrollView>

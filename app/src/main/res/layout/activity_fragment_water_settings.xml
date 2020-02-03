@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentWaterSettings"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:src="@drawable/untitled"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:textColor="@color/blue"
+            android:text="Your body is made up of 70% of Water."
+            android:layout_gravity="center"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="10dp"
+        android:background="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "General settings"
+        android:layout_margin="10dp"
+        android:textSize="20sp"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wake up time"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/tv_wakeup_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="8:30 am"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/blue"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sleep time"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/tv_bedtime_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="8:30 am"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/blue"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weight"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/tv_wakeup_time3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="60 Kg"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/blue"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/tv_wakeup_time4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/blue"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+       android:layout_margin="10dp"
+        android:background="@color/black"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Others"
+        android:layout_margin="10dp"
+        android:textSize="20sp"/>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Why Remainder app does't work ?"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_margin="10dp"
+            />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop Alert Notification "
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"
+        />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact developer"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"
+        />
+
+
+
+
+
+
+
+
+
+</LinearLayout>
