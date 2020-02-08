@@ -18,7 +18,7 @@
         android:text="General Info"
         android:textStyle="bold"
         android:textColor="@color/light_pink"
-        android:textSize="25sp"
+        android:textSize="22sp"
         android:layout_margin="10dp"/>
 
 
@@ -86,6 +86,7 @@
                 android:src="@drawable/sleep"
                 android:textAlignment="viewStart"/>
             <TextView
+                android:id="@+id/tv_wakeup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="8:30 am"
@@ -111,6 +112,7 @@
                 android:src="@drawable/period_women"
                 android:textAlignment="viewStart"/>
             <TextView
+                android:id="@+id/tv_next_period"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2 jan"
@@ -134,7 +136,7 @@
         android:text="Track Activities"
         android:textStyle="bold"
         android:textColor="@color/light_pink"
-        android:textSize="25sp"
+        android:textSize="22sp"
         android:layout_margin="10dp"/>
 
 
@@ -146,6 +148,7 @@
 <!--        android:layout_margin="10dp"/>-->
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_track_activity_period"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -163,7 +166,7 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="140dp"
                     android:src="@drawable/pad"
                     android:background="@color/yellow"
                     android:padding="12dp"
@@ -208,7 +211,7 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="140dp"
                     android:src="@drawable/water_cycle"
                     android:background="@color/blue"
                     android:padding="12dp"
@@ -236,6 +239,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_track_activity_others"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -252,8 +256,9 @@
                 >
 
                 <ImageView
+                    android:id="@+id/iv_track_activity_others"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="140dp"
                     android:src="@drawable/soul"
                     android:background="@color/light_pink"
                     android:padding="12dp"

@@ -5,6 +5,7 @@ import NotificationHelper
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.widget.Toast
 import androidx.core.app.NotificationCompat
 
 
@@ -15,5 +16,6 @@ class AlertReciever: BroadcastReceiver() {
         val notificationHelper = NotificationHelper(context)
         val nb: NotificationCompat.Builder = notificationHelper.channelNotification
         notificationHelper.manager.notify(1, nb.build())
+
     }
 }

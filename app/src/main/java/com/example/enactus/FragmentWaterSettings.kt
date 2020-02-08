@@ -17,10 +17,14 @@ class FragmentWaterSettings : AppCompatActivity() {
     var now = Calendar.getInstance()
     var timeFormat = SimpleDateFormat("hh:mm a", Locale.US)
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragment_water_settings)
 
+        val notification_pref = getSharedPreferences("notification_pref" , Context.MODE_PRIVATE)
+        tv_wakeup_time.text = notification_pref.getString("wakeUp time","Select time")
 
         tv_wakeup_time.setOnClickListener {
 
@@ -30,6 +34,9 @@ class FragmentWaterSettings : AppCompatActivity() {
                 selectedTime.set(Calendar.MINUTE,minute)
                 tv_wakeup_time.text = timeFormat.format(selectedTime.time)
                 StartAlarm(selectedTime)
+                val notif_editor = notification_pref.edit()
+                notif_editor.putString("wakeUp time",tv_wakeup_time.text.toString())
+                notif_editor.apply()
             },
                 now.get(Calendar.HOUR_OF_DAY),now.get(Calendar.MINUTE),false)
             timePickerDialog .show()
@@ -57,8 +64,17 @@ class FragmentWaterSettings : AppCompatActivity() {
             calender.add(Calendar.DATE, 1)
         }
         alarmManager.setExact(AlarmManager.RTC_WAKEUP,calender.timeInMillis,pendingIntent)
-        val long : Long = 60*60*1000
-        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,calender.timeInMillis ,long,pendingIntent)
+        val long : Long = 1000*60*60
+
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calender.timeInMillis ,long,pendingIntent)
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,long,1000*60*60,pendingIntent)
+//        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,2*long,3*long,pendingIntent)
+//        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,3*long,4*long,pendingIntent)
+//        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,4*long,5*long,pendingIntent)
+//        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,5*long,6*long,pendingIntent)
+//        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,6*long,7*long,pendingIntent)
+
+
 
 
 
@@ -67,4 +83,6 @@ class FragmentWaterSettings : AppCompatActivity() {
     }
 
 
+
 }
+

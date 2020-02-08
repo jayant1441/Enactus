@@ -10,11 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import com.example.enactus.AboutActivity
-import com.example.enactus.AboutEnactus
+import com.example.enactus.*
 import com.example.enactus.LoginSignUp.LoginActivity
-import com.example.enactus.MainActivity
-import com.example.enactus.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_fragment_settings.*
 import kotlinx.android.synthetic.main.fragment_fragment_settings.view.*
@@ -102,6 +99,10 @@ class FragmentSettings : Fragment() {
 
             }
 
+        }
+
+        tv_developer.setOnClickListener {
+            startActivity(Intent(context,Developer::class.java))
         }
 
 

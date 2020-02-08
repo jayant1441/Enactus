@@ -11,21 +11,51 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AboutEnactus"></activity>
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".FragmentWaterSettings" />
-        <activity android:name=".WaterTips" />
-        <activity android:name=".LoginSignUp.SignUpActivity" />
-        <activity android:name=".LoginSignUp.LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".IntroSlider.IntroSlider"
+            android:theme="@style/IntroSlider">
+
+        </activity>
+        <activity
+            android:name=".SplashScreen"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Developer"
+            android:screenOrientation="portrait"
+            android:theme="@style/Developer" />
+        <activity
+            android:name=".TrackPeriodActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OtherGraph"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutEnactus"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FragmentWaterSettings"
+            android:screenOrientation="portrait" />
+        <activity android:name=".WaterTips" />
+        <activity
+            android:name=".LoginSignUp.SignUpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginSignUp.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
 
         <receiver android:name=".AlertReciever" />
+        <receiver android:name=".ResetValueMidnight" />
     </application>
 
 </manifest>

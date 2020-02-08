@@ -1,11 +1,11 @@
-package com.example.enactus.PeriodFragmentRecyclerView.Adapters
+package com.example.enactus.PeriodFragmentFunction.Adapters
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.enactus.PeriodFragmentRecyclerView.DataClass.RecyclerViewDataClass
+import com.example.enactus.PeriodFragmentFunction.DataClass.RecyclerViewDataClass
 import com.example.enactus.R
 import kotlinx.android.synthetic.main.recycler_view_ticket.view.iv_physical_param_image
 import kotlinx.android.synthetic.main.recycler_view_ticket.view.iv_physical_param_image_color

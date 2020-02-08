@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.room.Room
 import com.example.enactus.MainActivity
 import com.example.enactus.R
-import com.example.enactus.RoomDatabase.RoomEntity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
@@ -33,54 +32,41 @@ class SignUpActivity : AppCompatActivity() {
 
 
 
-//btn_signUp.setOnClickListener {
-//    Thread{
-//        var now = Calendar.getInstance()
-//        val mypref  = getSharedPreferences("pref", Context.MODE_PRIVATE)
-//        val newest_water = mypref.getString("waterdrank","0")
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            var current_date = LocalDate.now()
-//            var room_entity = RoomEntity(3 ,3,newest_water!!)
-//            db.RoomDao().insertAll(room_entity)
-//            Log.d("done","mission successful")
-//        } else {
-//            var current_date =  Date()
-//        }
-//    }.start()
-//
-//}
-
-
-
-
 
         btn_signUp.setOnClickListener {
-           NoEmptyFields()
-           // if (!et_signup_email.text.isEmpty() && !et_signup_name.text.isEmpty() && !et_signup_number.text.isEmpty() && !et_signup_pass.text.isEmpty() && (et_signup_number.text.length<10 && et_signup_number.text.length>10) && (Patterns.EMAIL_ADDRESS.matcher(et_signup_email.text.toString()).matches())){
-                auth.createUserWithEmailAndPassword(et_signup_email.text.toString(), et_signup_pass.text.toString()).addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        val user = auth.currentUser
+            NoEmptyFields()
 
-                        user?.sendEmailVerification()
-                            ?.addOnCompleteListener { task ->
-                                if (task.isSuccessful) {
-                                    UploadToDatabase()
-                                    updateUI(user)
-                                }
-                            }
-                    }
-                    else {
-                        // If sign in fails, display a message to the user.
-                        Toast.makeText(baseContext, "Authentication failed.",Toast.LENGTH_SHORT).show()
-                    }
-                }
+           // if (!et_signup_email.text.isEmpty() && !et_signup_name.text.isEmpty() && !et_signup_number.text.isEmpty() && !et_signup_pass.text.isEmpty() && (et_signup_number.text.length<10 && et_signup_number.text.length>10) && (Patterns.EMAIL_ADDRESS.matcher(et_signup_email.text.toString()).matches())){
+              if (et_signup_number.text.length == 10){
+                  auth.createUserWithEmailAndPassword(et_signup_email.text.toString(), et_signup_pass.text.toString()).addOnCompleteListener(this) { task ->
+                      if (task.isSuccessful) {
+                          // Sign in success, update UI with the signed-in user's information
+                          val user = auth.currentUser
+                          UploadToDatabase()
+
+                          user?.sendEmailVerification()
+                              ?.addOnCompleteListener { task ->
+                                  if (task.isSuccessful) {
+
+                                      updateUI(user)
+                                  }
+                              }
+                      }
+                      else {
+                          // If sign in fails, display a message to the user.
+                          Toast.makeText(baseContext, "Authentication failed.",Toast.LENGTH_SHORT).show()
+                      }
+                  }
+
+              }
+            else{
+                  et_signup_number.error = "Please enter correct number"
+                  et_signup_number.requestFocus()
+                  return@setOnClickListener
+              }
             }
-////            else{
-////                Toast.makeText(baseContext, "Fill all fields",Toast.LENGTH_SHORT).show()
-////
-////            }
-//        }
+
+
 
         iv_back_signup.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
@@ -124,11 +110,11 @@ class SignUpActivity : AppCompatActivity() {
             et_signup_pass.requestFocus()
             return
         }
-        if (et_signup_number.text.length<10 && et_signup_number.text.length>10){
-            et_signup_number.error = "Please enter correct number"
-            et_signup_number.requestFocus()
-            return
-        }
+//        if (et_signup_number.text.length != 10){
+//            et_signup_number.error = "Please enter correct number"
+//            et_signup_number.requestFocus()
+//            return
+//        }
         if (et_signup_pass.text.length < 8){
             et_signup_pass.error = "Please enter 8 character long Password"
             et_signup_pass.requestFocus()
@@ -143,14 +129,18 @@ class SignUpActivity : AppCompatActivity() {
 
 
 
-    inner class DatabaseDataClass(val name: String, val phoneNumber:Int, val email:String, val password :String,val uuid:String)
+    data class DatabaseDataClass(val name: String, val phoneNumber:Int, val email:String, val password :String,val uuid:String)
 
     private fun UploadToDatabase(){
-        var uuid = FirebaseAuth.getInstance().uid
         val database = FirebaseDatabase.getInstance()
-        val ref = database.getReference("/users/$uuid")
+        val ref = database.getReference("users")
+
+        val uuid:String? = ref.push().key
+
         val user  = DatabaseDataClass(et_signup_name.text.toString(), et_signup_number.text.toString().toInt(), et_signup_email.text.toString(), et_signup_pass.text.toString(), uuid!!)
-        ref.setValue(user)
+        ref.child(uuid).setValue(user).addOnCompleteListener {
+            Toast.makeText(this,"Account Created", Toast.LENGTH_SHORT).show()
+        }
     }
 }
 

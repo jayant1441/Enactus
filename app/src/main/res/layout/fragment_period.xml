@@ -233,6 +233,7 @@
             android:layout_alignParentBottom="true">
 
             <Button
+                android:id="@+id/btn_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cancel"
@@ -246,7 +247,7 @@
                 android:id="@+id/btn_update_period_frag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="UPDATE"
+                android:text="Save Notes"
                 android:layout_weight="1"
                 android:layout_margin="7dp"
                 android:textSize="20sp"

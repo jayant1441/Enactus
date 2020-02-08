@@ -16,10 +16,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.enactus.FragmentWaterSettings
-import com.example.enactus.R
-import com.example.enactus.ResetValueMidnight
-import com.example.enactus.WaterTips
+import com.example.enactus.*
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_fragment_water.*
 import kotlinx.android.synthetic.main.fragment_fragment_water.view.*
@@ -28,6 +25,19 @@ import java.util.*
 
 
 class FragmentWater : Fragment() {
+
+
+    companion object {
+        var ins: MainActivity? = null
+        fun getInstance(): MainActivity? {
+            return ins
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        ins = MainActivity()
+    }
 
 
     override fun onCreateView(
@@ -64,6 +74,8 @@ class FragmentWater : Fragment() {
         retrievedata()
 
         reset_value_at_midnight()
+
+
 
 
         if (FirebaseAuth.getInstance().currentUser != null) {
@@ -117,12 +129,18 @@ class FragmentWater : Fragment() {
     }
 
     private fun reset_value_at_midnight() {
+        var midnight  = Calendar.getInstance()
+        midnight.set(Calendar.HOUR_OF_DAY,0)
+        midnight.set(Calendar.MINUTE,0)
+        if(midnight.before(Calendar.getInstance())){
+            midnight.add(Calendar.DATE,1)
+        }
         var alarmManager = context!!.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         var intent = Intent(context, ResetValueMidnight::class.java)
+//        intent.action = Intent.ACTION_DATE_CHANGED
         val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0)
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP,midnight.timeInMillis,pendingIntent)
 
-        alarmManager.setExact(RTC,0,pendingIntent)
-        Toast.makeText(context,"reset",Toast.LENGTH_SHORT).show()
 
 
 
@@ -130,5 +148,14 @@ class FragmentWater : Fragment() {
 //        var value = reset_value_shared_pref.getString("reset_value","reset failed")
 //        tv_water_already_drank.text = value
     }
+
+
+
+
+
+
+
+
+
 
 }

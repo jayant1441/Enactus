@@ -8,17 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.enactus.PeriodFragmentRecyclerView.Adapters.RV_AdapterFluidDischarge
-import com.example.enactus.PeriodFragmentRecyclerView.Adapters.RV_AdapterPain
+import com.example.enactus.PeriodFragmentFunction.Adapters.RV_AdapterFluidDischarge
+import com.example.enactus.PeriodFragmentFunction.Adapters.RV_AdapterPain
 import com.example.enactus.R
-import com.example.enactus.PeriodFragmentRecyclerView.Adapters.RV_AdapterPhysicalParams
-import com.example.enactus.PeriodFragmentRecyclerView.Adapters.RV_SexDriveAdapter
-import com.example.enactus.PeriodFragmentRecyclerView.DataClass.RV_FluidDataClass
-import com.example.enactus.PeriodFragmentRecyclerView.DataClass.RV_PainDataClass
-import com.example.enactus.PeriodFragmentRecyclerView.DataClass.RV_SexDataClass
-import com.example.enactus.PeriodFragmentRecyclerView.DataClass.RecyclerViewDataClass
+import com.example.enactus.PeriodFragmentFunction.Adapters.RV_AdapterPhysicalParams
+import com.example.enactus.PeriodFragmentFunction.Adapters.RV_SexDriveAdapter
+import com.example.enactus.PeriodFragmentFunction.DataClass.RV_FluidDataClass
+import com.example.enactus.PeriodFragmentFunction.DataClass.RV_PainDataClass
+import com.example.enactus.PeriodFragmentFunction.DataClass.RV_SexDataClass
+import com.example.enactus.PeriodFragmentFunction.DataClass.RecyclerViewDataClass
 import kotlinx.android.synthetic.main.fragment_period.*
 import kotlinx.android.synthetic.main.fragment_period.view.*
+import kotlin.collections.ArrayList
 
 
 class FragmentPeriod : Fragment() {
@@ -28,7 +29,11 @@ class FragmentPeriod : Fragment() {
     var listOfFluidItems = ArrayList<RV_FluidDataClass>()
     var listOfSexDriveItems = ArrayList<RV_SexDataClass>()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val myfragment_period = inflater.inflate(R.layout.fragment_period, container, false)
 
         loadRecyclerViewList()
@@ -39,8 +44,9 @@ class FragmentPeriod : Fragment() {
 
         val rv = myfragment_period.recycler_view as RecyclerView
         val rv_pain_and_symptoms = myfragment_period.rv_pain_and_symptoms as RecyclerView
-        val rv_fluid_vaginal_discharge = myfragment_period.rv_fluid_vaginal_discharge as RecyclerView
-   //     val rv_Pill = myfragment_period.rv_Pill as RecyclerView
+        val rv_fluid_vaginal_discharge =
+            myfragment_period.rv_fluid_vaginal_discharge as RecyclerView
+        //     val rv_Pill = myfragment_period.rv_Pill as RecyclerView
 //        val rv_bleeding = myfragment_period.rv_bleeding as RecyclerView
 //        val rv_Sleep = myfragment_period.rv_Sleep as RecyclerView
 //        val rv_Energy = myfragment_period.rv_Energy as RecyclerView
@@ -48,7 +54,7 @@ class FragmentPeriod : Fragment() {
         val rv_Sex = myfragment_period.rv_Sex as RecyclerView
 //        val rv_State_of_mind = myfragment_period.rv_State_of_mind as RecyclerView
 
-        val et_anything_to_remember  = myfragment_period.et_anything_to_remember
+        val et_anything_to_remember = myfragment_period.et_anything_to_remember
 
 
 
@@ -57,14 +63,15 @@ class FragmentPeriod : Fragment() {
 
 
 
-        rv_pain_and_symptoms.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+        rv_pain_and_symptoms.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rv_pain_and_symptoms.adapter = RV_AdapterPain(context!!, listofPainItems)
 
-        rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+        rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rv.adapter = RV_AdapterPhysicalParams(context!!, listOfItems)
 
-        rv_fluid_vaginal_discharge.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
-        rv_fluid_vaginal_discharge.adapter = RV_AdapterFluidDischarge(context!!,listOfFluidItems)
+        rv_fluid_vaginal_discharge.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        rv_fluid_vaginal_discharge.adapter = RV_AdapterFluidDischarge(context!!, listOfFluidItems)
 
 //        rv_Pill.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
 //        rv_Pill.adapter =
@@ -101,7 +108,7 @@ class FragmentPeriod : Fragment() {
 //                listOfItems
 //            )
 //
-        rv_Sex.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+        rv_Sex.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rv_Sex.adapter = RV_SexDriveAdapter(context!!, listOfSexDriveItems)
 //
 //        rv_State_of_mind.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
@@ -117,15 +124,19 @@ class FragmentPeriod : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        retrieveData()
+        retrieveData_anything_to_remember()
 
         btn_update_period_frag.setOnClickListener {
-            saveData()
+            saveData_anything_to_remember()
+        }
+
+        btn_cancel.setOnClickListener {
+            et_anything_to_remember.setText("")
         }
     }
 
-    private fun loadRecyclerViewList(){
-        listOfItems.add(RecyclerViewDataClass(R.drawable.weight,"Weight",R.color.purple))
+    private fun loadRecyclerViewList() {
+        listOfItems.add(RecyclerViewDataClass(R.drawable.weight, "Weight", R.color.purple))
         listOfItems.add(
             RecyclerViewDataClass(
                 R.drawable.height,
@@ -144,7 +155,7 @@ class FragmentPeriod : Fragment() {
         )
     }
 
-    private fun LoadPainRV(){
+    private fun LoadPainRV() {
         listofPainItems.add(
             RV_PainDataClass(
                 R.drawable.like,
@@ -187,7 +198,7 @@ class FragmentPeriod : Fragment() {
         listofPainItems.add(
             RV_PainDataClass(
                 R.drawable.battery,
-                "Fatique",
+                "Fatigue",
                 R.color.colorAccent
             )
         )
@@ -201,7 +212,7 @@ class FragmentPeriod : Fragment() {
         )
     }
 
-    private fun LoadFluidRV(){
+    private fun LoadFluidRV() {
         listOfFluidItems.add(
             RV_FluidDataClass(
                 R.drawable.close,
@@ -241,7 +252,7 @@ class FragmentPeriod : Fragment() {
         )
     }
 
-    private fun LoadSexDriveRV(){
+    private fun LoadSexDriveRV() {
         listOfSexDriveItems.add(
             RV_SexDataClass(
                 R.drawable.heart_break,
@@ -270,23 +281,27 @@ class FragmentPeriod : Fragment() {
         listOfSexDriveItems.add(
             RV_SexDataClass(
                 R.drawable.heart,
-                "Masturbation",
+                "Mastur-\n" +
+                        "bation",
                 R.color.blue
             )
         )
     }
 
-    private fun saveData(){
-        var myshared_pref =this.activity!!.getSharedPreferences("myUpdate_pref", Context.MODE_PRIVATE)
+    private fun saveData_anything_to_remember() {
+        var myshared_pref =
+            this.activity!!.getSharedPreferences("myUpdate_pref", Context.MODE_PRIVATE)
         var editor = myshared_pref.edit()
-        editor.putString("text_to_remember",et_anything_to_remember.text.toString())
+        editor.putString("text_to_remember", et_anything_to_remember.text.toString())
         editor.apply()
     }
 
-    private fun retrieveData(){
-        var myshared_pref =this.activity!!.getSharedPreferences("myUpdate_pref", Context.MODE_PRIVATE)
-        var text = myshared_pref.getString("text_to_remember","")
+    private fun retrieveData_anything_to_remember() {
+        var myshared_pref =
+            this.activity!!.getSharedPreferences("myUpdate_pref", Context.MODE_PRIVATE)
+        var text = myshared_pref.getString("text_to_remember", "")
         et_anything_to_remember.setText(text)
     }
+
 
 }

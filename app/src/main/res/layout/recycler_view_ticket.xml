@@ -11,7 +11,7 @@
         android:id="@+id/constraint_layout_rv_ticket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp">
+        android:layout_margin="13dp">
 
         <ImageView
             android:id="@+id/iv_physical_param_image"
@@ -26,8 +26,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_physical_param_image_color"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_centerHorizontal="true"
             android:src="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"

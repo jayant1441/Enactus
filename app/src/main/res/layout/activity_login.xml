@@ -51,18 +51,18 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="70dp"
+            android:layout_width="150dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_marginTop="100dp"
-            app:srcCompat="@drawable/google_logo" />
+            app:srcCompat="@drawable/chalu" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="sans-serif"
             android:text="Sign in to your account"
             android:textAlignment="center"
