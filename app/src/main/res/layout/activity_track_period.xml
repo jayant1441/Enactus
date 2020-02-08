@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TrackPeriodActivity"
+    android:background="@drawable/background_track_period">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Track Period"
+            android:layout_gravity="center"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_margin="12dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log the first day of period"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:layout_alignParentStart="true"/>
+
+            <TextView
+                android:id="@+id/tv_first_day_of_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2020-02-07"
+                android:layout_alignParentEnd="true"
+                android:textSize="16sp"
+                android:layout_margin="12dp"
+                android:textColor="@color/black"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Duration time"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                android:layout_alignParentStart="true"/>
+
+            <LinearLayout
+                android:id="@+id/ll_period_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentEnd="true">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginEnd="4dp"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Days"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recurrence"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                android:layout_alignParentStart="true"/>
+
+            <LinearLayout
+                android:id="@+id/ll_period_recurrence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentEnd="true">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="140"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginEnd="4dp"
+                    android:textColor="@color/black"/>
+                <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Days"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginEnd="12dp"
+                android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next prediction for Period"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                android:layout_alignParentStart="true"/>
+
+            <TextView
+                android:id="@+id/tv_prediction_next_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2020-04-07"
+                android:layout_alignParentEnd="true"
+                android:textSize="16sp"
+                android:layout_margin="12dp"
+                android:textColor="@color/black"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How to Feel Better on Your Period"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:typeface="serif"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Exercise With Lighter Activities"
+            android:layout_margin="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Hug A Heating Pad"
+            android:layout_margin="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/grey"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Drink Water And Stay Hydrated"
+            android:layout_margin="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. Eat Good-For-You Foods"
+            android:layout_margin="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5. Avoid Caffeine"
+            android:layout_margin="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6. Catch Your Zs"
+            android:layout_margin="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7. Take Notes"
+            android:layout_margin="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/grey"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8. Use Period Protection That Lets You Stay Active"
+            android:layout_margin="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/grey"/>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>
