@@ -1,8 +1,11 @@
 package com.example.enactus.LoginSignUp
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.enactus.MainActivity
@@ -15,6 +18,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.fragment_fragment_settings.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -26,6 +30,9 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        btn_forgot_password_reset_link.visibility = View.GONE
+
+
         val acct = GoogleSignIn.getLastSignedInAccount(this)
         if (acct != null) {
             val personName = acct.displayName
@@ -33,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
             val personFamilyName = acct.familyName
             val personEmail = acct.email
             val personId = acct.id
-           Log.i("hi" , personName!!)
+           Log.d("hiworld" , personName!!)
         }
 
         auth = FirebaseAuth.getInstance()
@@ -46,7 +53,9 @@ class LoginActivity : AppCompatActivity() {
         var mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         btn_login.setOnClickListener {
+            Toast.makeText(baseContext, "Please wait", Toast.LENGTH_SHORT).show()
             NoEmptyFields()
+
 
             try {
                 auth.signInWithEmailAndPassword(et_login_email.text.toString(), et_login_password.text.toString()).addOnCompleteListener(this) { task ->
@@ -84,6 +93,55 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, SignUpActivity::class.java))
             this.finish()
         }
+
+        tv_forgot_password.setOnClickListener {
+
+            et_login_password.visibility = View.GONE
+//            btn_facebook.visibility = View.GONE
+            btn_google.visibility = View.GONE
+            btn_login.visibility = View.GONE
+            tv_forgot_password.visibility = View.GONE
+            btn_forgot_password_reset_link.visibility = View.VISIBLE
+            tv_signin_to_ur_acc_text.text = "Enter your email"
+
+        }
+
+        btn_forgot_password_reset_link.setOnClickListener {
+
+            if (et_login_email.text.isEmpty()){
+                et_login_email.error = "Please enter your email"
+                et_login_email.requestFocus()
+                return@setOnClickListener
+            }
+            else {
+                if (Patterns.EMAIL_ADDRESS.matcher(et_login_email.text.toString()).matches()){
+                    val auth = FirebaseAuth.getInstance()
+                    val emailAddress = et_login_email.text.toString()
+
+                    auth.sendPasswordResetEmail(emailAddress)
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                Toast.makeText(this,"Password reset email sent" , Toast.LENGTH_SHORT ).show()
+                            }
+                            else{
+                                Toast.makeText(this,"User doesn't exist", Toast.LENGTH_SHORT ).show()
+
+                            }
+                        }
+                }
+                else{
+                    et_login_email.error = "Please enter correct email"
+                    et_login_email.requestFocus()
+                    return@setOnClickListener
+                }
+
+            }
+
+        }
+
+
+
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -92,16 +150,24 @@ class LoginActivity : AppCompatActivity() {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             handleSignInResult(task)
         }
+
+
+
+
     }
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account = completedTask.getResult(ApiException::class.java)
             startActivity(Intent(this,MainActivity::class.java))
+            val google_account_name_pref = getSharedPreferences("google_account_name_pref" ,Context.MODE_PRIVATE)
+            val google_account_name_pref_editor = google_account_name_pref.edit()
+            google_account_name_pref_editor.putString("Login_key" , "Welcome\n${account!!.displayName}")
+            google_account_name_pref_editor.apply()
 
-
-        } catch (e: ApiException) {
-
+            Toast.makeText(this,"Welcome : " + account!!.displayName , Toast.LENGTH_SHORT ).show()
+        }
+        catch (e: ApiException) {
             updateUI(null)
             Toast.makeText(this,"Error: " + e , Toast.LENGTH_SHORT ).show()
         }
@@ -119,15 +185,14 @@ class LoginActivity : AppCompatActivity() {
 
     private fun updateUI(user:FirebaseUser?){
         val currentUser = auth.currentUser
-        if (currentUser!=null){
-            if(currentUser.isEmailVerified){
-                startActivity(Intent(this, MainActivity::class.java))
-                this.finish()
-            }
-            else{
-                Toast.makeText(baseContext, "Verify your email", Toast.LENGTH_SHORT).show()
-            }
+        if (currentUser!=null) {
+            startActivity(Intent(this, MainActivity::class.java))
+            this.finish()
         }
+        else{
+            Toast.makeText(baseContext, "User Doesn't Exist", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
 

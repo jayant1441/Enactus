@@ -1,6 +1,7 @@
 package com.example.enactus.Fragments
 
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -11,6 +12,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import com.example.enactus.*
+import com.example.enactus.IntroSliderTextViewUpdate.IS_TV_Update2
+import com.example.enactus.IntroSliderTextViewUpdate.IntroSliderTV_update_main
 import com.example.enactus.LoginSignUp.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_fragment_settings.*
@@ -29,7 +32,6 @@ class FragmentSettings : Fragment() {
             inflater.inflate(R.layout.fragment_fragment_settings, container, false)
 
         val tv_login = myfragment_settings.tv_login as TextView
-        val tv_delete_Account = myfragment_settings.tv_delete_Account as TextView
         val tv_log_out = myfragment_settings.tv_log_out as TextView
         val tv_contact_us = myfragment_settings.tv_contact_us as TextView
         val tv_about_us = myfragment_settings.tv_about_us as TextView
@@ -60,8 +62,8 @@ class FragmentSettings : Fragment() {
 
 
         tv_visit_website.setOnClickListener {
-            val intent_to_website =
-                Intent(Intent.ACTION_VIEW, Uri.parse("http://enactusshivaji.org/"))
+            Toast.makeText(context,"Opening Website" , Toast.LENGTH_SHORT).show()
+            val intent_to_website = Intent(Intent.ACTION_VIEW, Uri.parse("http://enactusshivaji.org/"))
             startActivity(intent_to_website)
         }
 
@@ -80,6 +82,10 @@ class FragmentSettings : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        val google_account_name_pref = context!!.getSharedPreferences("google_account_name_pref" , Context.MODE_PRIVATE)
+        tv_login.text = google_account_name_pref.getString("Login_key","Login")
+
         if (FirebaseAuth.getInstance().currentUser != null) {
             tv_login.text = "Welcome"
             tv_login.isEnabled = false
@@ -104,6 +110,11 @@ class FragmentSettings : Fragment() {
         tv_developer.setOnClickListener {
             startActivity(Intent(context,Developer::class.java))
         }
+
+        tv_change_settings_all.setOnClickListener {
+            startActivity(Intent(context, IS_TV_Update2::class.java))
+        }
+
 
 
     }

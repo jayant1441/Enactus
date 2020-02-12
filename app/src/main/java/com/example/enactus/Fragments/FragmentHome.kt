@@ -12,10 +12,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.enactus.AlertReciever
-import com.example.enactus.OtherGraph
-import com.example.enactus.R
-import com.example.enactus.TrackPeriodActivity
+import com.example.enactus.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -45,12 +42,23 @@ class FragmentHome : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val notification_pref = context!!.getSharedPreferences("notification_pref" , Context.MODE_PRIVATE)
-        tv_wakeup.text = notification_pref.getString("wakeUp time","Select time")
+        val IS_weight_pref = context!!.getSharedPreferences("IS_weight_pref", Context.MODE_PRIVATE)
+        tv_weight.text = IS_weight_pref.getString("IS_Weight" ,"60") + " Kg"
 
-        var prediction_period_pref = context!!.getSharedPreferences("prediction_period_pref", Context.MODE_PRIVATE)
-        tv_next_period.text = prediction_period_pref.getString("prediction_next_period", "Select Date")
+        val IS_height_pref = context!!.getSharedPreferences("IS_height_pref", Context.MODE_PRIVATE)
+        tv_height.text = IS_height_pref.getString("IS_Height" ,"155") + " Cm"
 
+        val IS_wakeup_time_pref = context!!.getSharedPreferences("IS_wakeup_time_pref" , Context.MODE_PRIVATE)
+        tv_wakeup.text = IS_wakeup_time_pref.getString("wakeUp time", "6:30 AM")
+
+        val IS_period_First_date_pref = context!!.getSharedPreferences("IS_period_First_date_pref", Context.MODE_PRIVATE)
+        tv_first_period.text = IS_period_First_date_pref.getString("IS_first_period_date","Select Date")
+
+
+
+        cv_track_activity_water.setOnClickListener {
+            startActivity(Intent(context, TrackWaterActivity::class.java))
+        }
 
         cv_track_activity_others.setOnClickListener {
             startActivity(Intent(context,OtherGraph::class.java))
@@ -63,38 +71,39 @@ class FragmentHome : Fragment() {
 
 
 
+
         tv_next_period.setOnClickListener {
 
-            val now = Calendar.getInstance()
-            val datePicker = DatePickerDialog(context!!, DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                val selectedDate = Calendar.getInstance()
-                selectedDate.set(Calendar.YEAR,year)
-                selectedDate.set(Calendar.MONTH,month)
-                selectedDate.set(Calendar.DAY_OF_MONTH,dayOfMonth)
-                val date = formate.format(selectedDate.time)
-
-                tv_next_period.text = date
-
-//                var prediction_period_pref = context!!.getSharedPreferences("first_day_pref", Context.MODE_PRIVATE)
-                var editor = prediction_period_pref.edit()
-                editor.putString("prediction_next_period", tv_next_period.text.toString())
-                editor.apply()
-            },
-                now.get(Calendar.YEAR),now.get(Calendar.MONTH),now.get(Calendar.DAY_OF_MONTH)
-            )
-            datePicker.show()
+//            val now = Calendar.getInstance()
+//            val datePicker = DatePickerDialog(context!!, DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+//                val selectedDate = Calendar.getInstance()
+//                selectedDate.set(Calendar.YEAR,year)
+//                selectedDate.set(Calendar.MONTH,month)
+//                selectedDate.set(Calendar.DAY_OF_MONTH,dayOfMonth)
+//                val date = formate.format(selectedDate.time)
+//
+//                tv_next_period.text = date
+//
+////                var prediction_period_pref = context!!.getSharedPreferences("first_day_pref", Context.MODE_PRIVATE)
+//                var editor = prediction_period_pref.edit()
+//                editor.putString("prediction_next_period", tv_next_period.text.toString())
+//                editor.apply()
+//            },
+//                now.get(Calendar.YEAR),now.get(Calendar.MONTH),now.get(Calendar.DAY_OF_MONTH)
+//            )
+//            datePicker.show()
         }
 
         tv_wakeup.setOnClickListener {
-
+//
             val timePickerDialog = TimePickerDialog(context, TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
                 val selectedTime = Calendar.getInstance()
                 selectedTime.set(Calendar.HOUR_OF_DAY,hourOfDay)
                 selectedTime.set(Calendar.MINUTE,minute)
                 tv_wakeup.text = timeFormat.format(selectedTime.time)
                 StartAlarm(selectedTime)
-
-                shared_pref("wakeUp time", tv_wakeup.text.toString())
+//
+//                shared_pref("wakeUp time", tv_wakeup.text.toString())
             },
                 now.get(Calendar.HOUR_OF_DAY),now.get(Calendar.MINUTE),false)
             timePickerDialog .show()
@@ -104,12 +113,7 @@ class FragmentHome : Fragment() {
 
 
 
-    fun shared_pref(key_name : String, tv_whose_value_to_be_saved  : String){
-        val notification_pref = context!!.getSharedPreferences("notification_pref" , Context.MODE_PRIVATE)
-        val editor = notification_pref.edit()
-        editor.putString(key_name, tv_whose_value_to_be_saved)
-        editor.apply()
-    }
+
 
     private fun StartAlarm(calender: Calendar) {
 

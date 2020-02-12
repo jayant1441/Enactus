@@ -29,4 +29,10 @@
         <item name="colorAccent">@color/black</item>
     </style>
 
+    <style name="IntroSliderUpdateTV" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/ajib_yellow</item>
+        <item name="colorPrimaryDark">@color/ajib_yellow</item>
+        <item name="colorAccent">@color/ajib_yellow</item>
+    </style>
 </resources>

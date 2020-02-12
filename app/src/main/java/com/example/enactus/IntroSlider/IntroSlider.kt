@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
+import com.example.enactus.IntroSliderTextViewUpdate.IntroSliderTV_update_main
 import com.example.enactus.MainActivity
 import com.example.enactus.R
 import kotlinx.android.synthetic.main.activity_intro_slider.*
@@ -21,7 +22,7 @@ class IntroSlider : AppCompatActivity() {
         val sharedpref_intro_slider = getSharedPreferences("intro_slider_pref" , Context.MODE_PRIVATE)
 
         if (!sharedpref_intro_slider.getBoolean("put_show_boolean", true)){
-            startActivity(Intent(baseContext, MainActivity::class.java))
+            startActivity(Intent(baseContext, IntroSliderTV_update_main::class.java))
             finish()
         }
 
@@ -56,7 +57,7 @@ class IntroSlider : AppCompatActivity() {
 
                         btn_next.setOnClickListener {
 
-                            startActivity(Intent(baseContext, MainActivity::class.java))
+                            startActivity(Intent(baseContext, IntroSliderTV_update_main::class.java))
                             finish()
 
                             val intro_pref_editor = sharedpref_intro_slider.edit()
@@ -65,13 +66,12 @@ class IntroSlider : AppCompatActivity() {
                         }
                     }
                 }
-//
             }
         })
 
 
         btn_skip.setOnClickListener {
-            startActivity(Intent(baseContext, MainActivity::class.java))
+            startActivity(Intent(baseContext, IntroSliderTV_update_main::class.java))
             finish()
         }
 

@@ -42,56 +42,7 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <View
-            android:id="@+id/view2"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginStart="9dp"
-            android:layout_marginEnd="9dp"
-            android:layout_marginBottom="25dp"
-            android:layout_marginTop="25dp"
-            android:background="@color/white" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:textStyle="bold"
-                android:drawableStart="@drawable/ic_info_outline_black_24dp"
-                android:drawablePadding="5dp"
-                android:padding="5dp"
-                android:text="Account"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/tv_delete_Account"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="42dp"
-                android:layout_marginBottom="7dp"
-                android:text="Delete account"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/tv_log_out"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="42dp"
-                android:layout_marginBottom="7dp"
-                android:text="Log Out"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-
-
-        </LinearLayout>
 
         <View
             android:id="@+id/view3"
@@ -139,6 +90,7 @@
                 android:layout_marginStart="42dp"
                 android:layout_marginBottom="7dp"
                 android:text="Visit Website"
+                android:textStyle="italic"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
@@ -213,6 +165,57 @@
                 android:textSize="20sp" />
 
 
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@color/white" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textStyle="bold"
+                android:drawableStart="@drawable/ic_info_outline_black_24dp"
+                android:drawablePadding="5dp"
+                android:padding="5dp"
+                android:text="Account"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/tv_change_settings_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginBottom="7dp"
+                android:text="Change Settings"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_log_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginBottom="7dp"
+                android:text="Log Out"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
 
         </LinearLayout>

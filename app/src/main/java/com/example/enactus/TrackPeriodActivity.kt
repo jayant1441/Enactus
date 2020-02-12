@@ -19,11 +19,17 @@ class TrackPeriodActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_track_period)
 
-        var first_day_pref = getSharedPreferences("first_day_pref",Context.MODE_PRIVATE)
-        tv_first_day_of_period.text = first_day_pref.getString("first_day_period_date","Select Date")
+        val IS_period_First_date_pref = getSharedPreferences("IS_period_First_date_pref", Context.MODE_PRIVATE)
+        tv_first_day_of_period.text = IS_period_First_date_pref.getString("IS_first_period_date","Select Date")
 
         var prediction_period_pref = getSharedPreferences("prediction_period_pref", Context.MODE_PRIVATE)
         tv_prediction_next_period.text = prediction_period_pref.getString("prediction_next_period", "Select Date")
+
+        val IS_Duration_period_pref = getSharedPreferences("IS_Duration_period" , Context.MODE_PRIVATE)
+        tv_duration_track_period_activity.setText(IS_Duration_period_pref.getString("Duration_key","7"))
+
+        val IS_Recurrence_period_pref = getSharedPreferences("IS_Recurrence_period_pref", Context.MODE_PRIVATE)
+        tv_recurrence_track_period_activity.setText(IS_Recurrence_period_pref.getString("Recurrence_key", "120"))
 
 
 
@@ -40,8 +46,8 @@ class TrackPeriodActivity : AppCompatActivity() {
                 tv_first_day_of_period.text = date
 
 //                var first_day_pref = getSharedPreferences("first_day_pref",Context.MODE_PRIVATE)
-                var editor = first_day_pref.edit()
-                editor.putString("first_day_period_date",tv_first_day_of_period.text.toString())
+                var editor = IS_period_First_date_pref.edit()
+                editor.putString("IS_first_period_date",tv_first_day_of_period.text.toString())
                 editor.apply()
             },
                 now.get(Calendar.YEAR),now.get(Calendar.MONTH),now.get(Calendar.DAY_OF_MONTH)

@@ -10,7 +10,7 @@ class OtherGraph : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_other_graph)
 
-        var bar_entries = ArrayList<BarEntry>()
+
 
     }
 }

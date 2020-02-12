@@ -29,17 +29,22 @@ class FragmentPeriod : Fragment() {
     var listOfFluidItems = ArrayList<RV_FluidDataClass>()
     var listOfSexDriveItems = ArrayList<RV_SexDataClass>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val myfragment_period = inflater.inflate(R.layout.fragment_period, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        loadRecyclerViewList()
+        val IS_sleep_time_pref = context!!.getSharedPreferences("IS_sleep_time_pref" , Context.MODE_PRIVATE)
+        val IS_weight_pref = context!!.getSharedPreferences("IS_weight_pref", Context.MODE_PRIVATE)
+        val IS_height_pref = context!!.getSharedPreferences("IS_height_pref", Context.MODE_PRIVATE)
+
+
+        val myfragment_period = inflater.inflate(R.layout.fragment_period, container, false)
+//        loadRecyclerViewList()
         LoadPainRV()
         LoadFluidRV()
         LoadSexDriveRV()
+
+        listOfItems.add(RecyclerViewDataClass(R.drawable.weight, "Weight", R.color.purple, IS_weight_pref.getString("IS_Weight","60") +" Kg" ))
+        listOfItems.add(RecyclerViewDataClass(R.drawable.height, "Height", R.color.purple,IS_height_pref.getString("IS_Height","155") + " Cm"))
+        listOfItems.add(RecyclerViewDataClass(R.drawable.sleep, "Sleep", R.color.purple, IS_sleep_time_pref.getString("Sleep time", "No Time\nSelected")))
 
 
         val rv = myfragment_period.recycler_view as RecyclerView
@@ -135,25 +140,15 @@ class FragmentPeriod : Fragment() {
         }
     }
 
-    private fun loadRecyclerViewList() {
-        listOfItems.add(RecyclerViewDataClass(R.drawable.weight, "Weight", R.color.purple))
-        listOfItems.add(
-            RecyclerViewDataClass(
-                R.drawable.height,
-                "Height",
-                R.color.purple
-            )
-        )
-        listOfItems.add(
-            RecyclerViewDataClass(
-                R.drawable.sleep,
-                "Sleep",
-                R.color.purple
-
-
-            )
-        )
-    }
+//    private fun loadRecyclerViewList() {
+//
+//        val IS_sleep_time_pref = context!!.getSharedPreferences("IS_sleep_time_pref" , Context.MODE_PRIVATE)
+//
+//
+//        listOfItems.add(RecyclerViewDataClass(R.drawable.weight, "Weight", R.color.purple, "hi"))
+//        listOfItems.add(RecyclerViewDataClass(R.drawable.height, "Height", R.color.purple,"hi"))
+//        listOfItems.add(RecyclerViewDataClass(R.drawable.sleep, "Sleep", R.color.purple, IS_sleep_time_pref.getString("Sleep time", "Select Time")))
+//    }
 
     private fun LoadPainRV() {
         listofPainItems.add(

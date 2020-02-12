@@ -114,7 +114,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_wakeup_time3"
+            android:id="@+id/tv_Weight_water_settings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="60 Kg"
@@ -164,7 +164,7 @@
         android:textSize="20sp"/>
 
         <TextView
-
+            android:id="@+id/tv_why_remainder_dont_work"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Why Remainder app does't work ?"
@@ -174,7 +174,7 @@
             />
 
     <TextView
-
+        android:id="@+id/tv_stop_water_alert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Stop Alert Notification "
@@ -184,7 +184,7 @@
         />
 
     <TextView
-
+        android:id="@+id/tv_contact_developer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Contact developer"

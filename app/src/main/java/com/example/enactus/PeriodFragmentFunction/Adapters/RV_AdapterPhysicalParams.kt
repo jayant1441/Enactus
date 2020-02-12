@@ -29,6 +29,8 @@ class RV_AdapterPhysicalParams(var context: Context, var listOfItems:ArrayList<R
         holder.iv_phy_param_icon.setImageResource(item.Phy_param_Image)
         holder.tv_phy_param_name.text = item.Phy_param_Title
         holder.iv_phy_param_icon_color.setImageResource(item.Phy_param_Image_color)
+        holder.tv_phy_param_des.text = item.Phy_param_Des
+
 
     }
 
@@ -36,6 +38,7 @@ class RV_AdapterPhysicalParams(var context: Context, var listOfItems:ArrayList<R
         var tv_phy_param_name = itemview.tv_Phy_param_param
         var iv_phy_param_icon = itemview.iv_physical_param_image
         var iv_phy_param_icon_color = itemview.iv_physical_param_image_color
+        var tv_phy_param_des = itemview.tv_phy_param_des
 
     }
 }

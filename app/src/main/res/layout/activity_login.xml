@@ -9,6 +9,7 @@
     tools:context=".LoginSignUp.LoginActivity">
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
@@ -58,7 +59,7 @@
             app:srcCompat="@drawable/chalu" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tv_signin_to_ur_acc_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -121,51 +122,69 @@
             android:textColor="@color/colorAccent"
             android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20dp">-->
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+<!--            <RelativeLayout-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content">-->
 
-                <Button
-                    android:id="@+id/btn_facebook"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="50dp"
-                    android:background="@drawable/btn_border"
-                    android:drawableStart="@drawable/facebook_logo"
-                    android:drawablePadding="8dp"
-                    android:elevation="2dp"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:text="Facebook" />
+<!--                <Button-->
+<!--                    android:id="@+id/btn_facebook"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentStart="true"-->
+<!--                    android:layout_marginStart="40dp"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:layout_marginEnd="50dp"-->
+<!--                    android:background="@drawable/btn_border"-->
+<!--                    android:drawableStart="@drawable/facebook_logo"-->
+<!--                    android:drawablePadding="8dp"-->
+<!--                    android:elevation="2dp"-->
+<!--                    android:paddingStart="16dp"-->
+<!--                    android:paddingEnd="16dp"-->
+<!--                    android:text="Facebook" />-->
 
                 <Button
                     android:id="@+id/btn_google"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="40dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@drawable/btn_border"
                     android:drawableStart="@drawable/google_logo"
                     android:drawablePadding="8dp"
                     android:elevation="2dp"
+                    android:layout_gravity="center"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
                     android:text="Google    " />
 
-            </RelativeLayout>
+<!--            </RelativeLayout>-->
 
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
+
+        <Button
+            android:id="@+id/btn_forgot_password_reset_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/btn_border"
+            android:includeFontPadding="false"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:text="Send reset link"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
 
 
         <TextView
