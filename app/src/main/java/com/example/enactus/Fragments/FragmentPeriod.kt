@@ -37,7 +37,6 @@ class FragmentPeriod : Fragment() {
 
 
         val myfragment_period = inflater.inflate(R.layout.fragment_period, container, false)
-//        loadRecyclerViewList()
         LoadPainRV()
         LoadFluidRV()
         LoadSexDriveRV()
@@ -69,7 +68,7 @@ class FragmentPeriod : Fragment() {
 
 
         rv_pain_and_symptoms.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        rv_pain_and_symptoms.adapter = RV_AdapterPain(context!!, listofPainItems)
+        rv_pain_and_symptoms.adapter = RV_AdapterPain(context!!, listofPainItems )
 
         rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rv.adapter = RV_AdapterPhysicalParams(context!!, listOfItems)

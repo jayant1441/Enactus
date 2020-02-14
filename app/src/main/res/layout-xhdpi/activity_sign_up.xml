@@ -31,7 +31,7 @@
             android:id="@+id/imageView4"
             android:layout_width="150dp"
             android:layout_height="70dp"
-            android:layout_marginTop="85dp"
+            android:layout_marginTop="55dp"
             app:srcCompat="@drawable/chalu"
             android:layout_gravity="center"/>
 
@@ -123,7 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="70dp"
             android:text="Already Have an account. Login? "
             android:textSize="16sp"
             android:textColor="@color/black"

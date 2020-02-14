@@ -36,7 +36,6 @@ class FragmentMeditation : Fragment() {
         mp.isLooping = true
 
 
-
         btn_pause_play.setOnCheckedChangeListener { buttonView, isChecked ->
             if (btn_pause_play.isChecked) {
                 btn_pause_play.setBackgroundResource(R.drawable.pause)
@@ -51,38 +50,32 @@ class FragmentMeditation : Fragment() {
         return myfragment_meditation
     }
 
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//
-//        val mp = MediaPlayer.create(context, R.raw.meditation_music)
-//        mp.isLooping = true
-//
-//
-//
-//        btn_pause_play.setOnCheckedChangeListener { buttonView, isChecked ->
-//            if (btn_pause_play.isChecked) {
-//                btn_pause_play.setBackgroundResource(R.drawable.pause)
-//                mp.start()
-//            } else {
-//                btn_pause_play.setBackgroundResource(R.drawable.play)
-//                mp.pause()
-//            }
-//
-//        }
-//    }
-
-
 
     override fun onPause() {
         super.onPause()
         val mp = MediaPlayer.create(context, R.raw.meditation_music)
-        mp.stop()
+        mp.pause()
     }
+
+    override fun onDetach() {
+        super.onDetach()
+        val mp = MediaPlayer.create(context, R.raw.meditation_music)
+        mp.pause()
+    }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         val mp = MediaPlayer.create(context, R.raw.meditation_music)
-        mp.stop()
+        mp.pause()
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        val mp = MediaPlayer.create(context, R.raw.meditation_music)
+        mp.pause()
 
     }
 

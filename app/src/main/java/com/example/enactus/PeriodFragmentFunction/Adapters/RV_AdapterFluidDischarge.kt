@@ -55,7 +55,7 @@ class RV_AdapterFluidDischarge(var context: Context, var listOfFluidItems:ArrayL
                              FluidEntity(
                                  current_date,
                                  Calendar.MONTH,
-                                 Calendar.DAY_OF_MONTH,
+                                 current_date.substring(7).toInt(),
                                  holder.tv_fluid_image.text.toString())
                          )
 

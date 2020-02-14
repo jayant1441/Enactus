@@ -9,7 +9,7 @@ interface SexDriveDao {
     @Insert
     fun insert_in_SexDriveEntity(users: SexDriveEntity)
 
-    @Query("Select * from SexDriveEntity")
+    @Query("Select * from SexDriveEntity order by `Current_date`")
     fun retrieveData_from_SexDrive_entity(): List<SexDriveEntity>
 }
 

@@ -8,11 +8,12 @@ import android.app.TimePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.enactus.*
+import kotlinx.android.synthetic.main.activity_track_period.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -21,7 +22,7 @@ import java.util.*
 class FragmentHome : Fragment() {
 
 
-    var formate = SimpleDateFormat("dd MMM, YYYY",Locale.US)
+    var formate = SimpleDateFormat("yyyy-MM-dd", Locale.US)
     var timeFormat = SimpleDateFormat("hh:mm a", Locale.US)
     val now = Calendar.getInstance()
 
@@ -54,6 +55,11 @@ class FragmentHome : Fragment() {
         val IS_period_First_date_pref = context!!.getSharedPreferences("IS_period_First_date_pref", Context.MODE_PRIVATE)
         tv_first_period.text = IS_period_First_date_pref.getString("IS_first_period_date","Select Date")
 
+        val IS_Recurrence_period_pref = context!!.getSharedPreferences("IS_Recurrence_period_pref", Context.MODE_PRIVATE)
+        val rec = (IS_Recurrence_period_pref.getString("Recurrence_key", "120")).toString().toInt()
+
+        val predicted_date_pref = context!!.getSharedPreferences("predicted_date_pref" , Context.MODE_PRIVATE)
+        tv_predicted_next_period_hf.text = predicted_date_pref.getString("predicted_date_pref_key" , "No Date to show")
 
 
         cv_track_activity_water.setOnClickListener {
@@ -61,7 +67,7 @@ class FragmentHome : Fragment() {
         }
 
         cv_track_activity_others.setOnClickListener {
-            startActivity(Intent(context,OtherGraph::class.java))
+            startActivity(Intent(context,TrackActivityOthers::class.java))
         }
 
         cv_track_activity_period.setOnClickListener {
@@ -69,29 +75,41 @@ class FragmentHome : Fragment() {
         }
 
 
+        var dateInString = IS_period_First_date_pref.getString("IS_first_period_date","2020-11-20")
+        var sdf = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+        val c = Calendar.getInstance()
+        c.time = sdf.parse(dateInString)
+        c.add(Calendar.DATE, rec.toInt())
+        sdf = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+        val resultdate = Date(c.timeInMillis)
+        dateInString = sdf.format(resultdate)
+        tv_predicted_next_period_hf.text = dateInString
+
+        val predicted_date_pref_editor =  predicted_date_pref.edit()
+        predicted_date_pref_editor.putString("predicted_date_pref_key" , tv_predicted_next_period_hf.text.toString())
+        predicted_date_pref_editor.apply()
 
 
 
-        tv_next_period.setOnClickListener {
+        tv_first_period.setOnClickListener {
 
-//            val now = Calendar.getInstance()
-//            val datePicker = DatePickerDialog(context!!, DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-//                val selectedDate = Calendar.getInstance()
-//                selectedDate.set(Calendar.YEAR,year)
-//                selectedDate.set(Calendar.MONTH,month)
-//                selectedDate.set(Calendar.DAY_OF_MONTH,dayOfMonth)
-//                val date = formate.format(selectedDate.time)
-//
-//                tv_next_period.text = date
-//
-////                var prediction_period_pref = context!!.getSharedPreferences("first_day_pref", Context.MODE_PRIVATE)
-//                var editor = prediction_period_pref.edit()
-//                editor.putString("prediction_next_period", tv_next_period.text.toString())
-//                editor.apply()
-//            },
-//                now.get(Calendar.YEAR),now.get(Calendar.MONTH),now.get(Calendar.DAY_OF_MONTH)
-//            )
-//            datePicker.show()
+            val now = Calendar.getInstance()
+            val datePicker = DatePickerDialog(context!!, DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                val selectedDate = Calendar.getInstance()
+                selectedDate.set(Calendar.YEAR,year)
+                selectedDate.set(Calendar.MONTH,month)
+                selectedDate.set(Calendar.DAY_OF_MONTH,dayOfMonth)
+                val date = formate.format(selectedDate.time)
+
+                tv_first_period.text = date
+
+                var IS_period_First_date_pref_editor = IS_period_First_date_pref.edit()
+                IS_period_First_date_pref_editor.putString("IS_first_period_date" , tv_first_period.text.toString())
+                IS_period_First_date_pref_editor.apply()
+            },
+                now.get(Calendar.YEAR),now.get(Calendar.MONTH),now.get(Calendar.DAY_OF_MONTH)
+            )
+            datePicker.show()
         }
 
         tv_wakeup.setOnClickListener {
@@ -128,18 +146,10 @@ class FragmentHome : Fragment() {
 
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calender.timeInMillis ,long,pendingIntent)
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,long,1000*60*60,pendingIntent)
-//        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,2*long,3*long,pendingIntent)
-//        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,3*long,4*long,pendingIntent)
-//        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,4*long,5*long,pendingIntent)
-//        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,5*long,6*long,pendingIntent)
-//        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,6*long,7*long,pendingIntent)
-
-
-
-
-
-
-
     }
+
+
+
+
 
 }

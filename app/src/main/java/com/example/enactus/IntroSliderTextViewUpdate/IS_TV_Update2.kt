@@ -3,18 +3,16 @@ package com.example.enactus.IntroSliderTextViewUpdate
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.enactus.MainActivity
 import com.example.enactus.R
-import kotlinx.android.synthetic.main.activity_is__tv__update2.*
+import kotlinx.android.synthetic.main.activity_is_tv_update2.*
 
 
 class IS_TV_Update2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_is__tv__update2)
+        setContentView(R.layout.activity_is_tv_update2)
 
 
         val IS_weight_pref = getSharedPreferences("IS_weight_pref", Context.MODE_PRIVATE)

@@ -31,6 +31,8 @@ class TrackPeriodActivity : AppCompatActivity() {
         val IS_Recurrence_period_pref = getSharedPreferences("IS_Recurrence_period_pref", Context.MODE_PRIVATE)
         tv_recurrence_track_period_activity.setText(IS_Recurrence_period_pref.getString("Recurrence_key", "120"))
 
+        val predicted_date_pref = getSharedPreferences("predicted_date_pref" , Context.MODE_PRIVATE)
+        tv_prediction_next_period.text = predicted_date_pref.getString("predicted_date_pref_key" , "No Date to show")
 
 
         var now = Calendar.getInstance()

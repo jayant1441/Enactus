@@ -1,7 +1,6 @@
 package com.example.enactus.IntroSliderTextViewUpdate
 
 import android.app.DatePickerDialog
-import android.app.TimePickerDialog
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import com.example.enactus.MainActivity
 import com.example.enactus.R
-import kotlinx.android.synthetic.main.activity_is__tv__update5.*
+import kotlinx.android.synthetic.main.activity_is_tv_update5.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -18,10 +17,10 @@ class IS_TV_Update5 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_is__tv__update5)
+        setContentView(R.layout.activity_is_tv_update5)
 
         val now = Calendar.getInstance()
-        var dateformat = SimpleDateFormat("dd MMM, YYYY",Locale.US)
+        var dateformat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
 
 
         val IS_period_First_date_pref = getSharedPreferences("IS_period_First_date_pref", Context.MODE_PRIVATE)
@@ -35,15 +34,14 @@ class IS_TV_Update5 : AppCompatActivity() {
 
 
 
-
         btn_next_IS_Update5.setOnClickListener {
 
             val IS_Duration_period_pref_editor = IS_Duration_period_pref.edit()
             IS_Duration_period_pref_editor.putString("Duration_key" , et_picker_duration.text.toString())
             IS_Duration_period_pref_editor.apply()
 
-            val IS_Recurrence_period_pref_editor = IS_Recurrence_period_pref.edit()
-            IS_Duration_period_pref_editor.putString("Recurrence_key" , et_picker_recurrence.text.toString())
+            var IS_Recurrence_period_pref_editor = IS_Recurrence_period_pref.edit()
+            IS_Recurrence_period_pref_editor.putString("Recurrence_key" , et_picker_recurrence.text.toString())
             IS_Recurrence_period_pref_editor.apply()
 
 
@@ -51,10 +49,15 @@ class IS_TV_Update5 : AppCompatActivity() {
             finish()
         }
 
+
+
         btn_back_IS_Update5.setOnClickListener {
             startActivity(Intent(this,IS_TV_Update4::class.java))
             finish()
         }
+
+
+
 
         tv_IS_period_First_date.setOnClickListener {
             val datePicker = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
@@ -64,12 +67,8 @@ class IS_TV_Update5 : AppCompatActivity() {
                 selectedDate.set(Calendar.DAY_OF_MONTH,dayOfMonth)
                 val date = dateformat.format(selectedDate.time)
 
-                
 
-                Toast.makeText(this,selectedDate.add(Calendar.DATE,10).toString(),Toast.LENGTH_SHORT).show()
-
-
-                    tv_IS_period_First_date.text = date
+                tv_IS_period_First_date.text = date
                 var IS_period_First_date_pref_editor = IS_period_First_date_pref.edit()
                 IS_period_First_date_pref_editor.putString("IS_first_period_date" , tv_IS_period_First_date.text.toString())
                 IS_period_First_date_pref_editor.apply()

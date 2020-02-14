@@ -10,7 +10,7 @@ interface DAO {
     @Insert
     fun insert_in_painEntity( users: PainEntity)
 
-    @Query("Select * from PainEntity")
+    @Query("Select * from PainEntity order by `Current_date` ")
     fun retrieveData_from_pain_entity() : List<PainEntity>
 
 

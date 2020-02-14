@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.enactus.R
 import kotlinx.android.synthetic.main.intro_slider_ticket.view.*
 
-class IntroSliderAdapter() : RecyclerView.Adapter<IntroSliderAdapter.IntroViewHolder>() {
+class IntroSliderAdapter : RecyclerView.Adapter<IntroSliderAdapter.IntroViewHolder>() {
 
     inner class IntroViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
 
@@ -29,17 +29,12 @@ class IntroSliderAdapter() : RecyclerView.Adapter<IntroSliderAdapter.IntroViewHo
     }
 
     override fun onBindViewHolder(holder: IntroViewHolder, position: Int) {
-     //   val listItem = listOfIntroItems[position]
-//        holder.iv_intro_icon.setImageResource(listItem.intro_icon)
-//        holder.tv_intro_title.text = listItem.intro_title
-//        holder.tv_intro_des.text = listItem.intro_descripption
 
         if(position == 0){
             holder.tv_intro_title.text = "Track all your periods"
             holder.tv_intro_des.text = "Helps you track all your periods, Symptoms and show them in effective way"
             holder.iv_intro_icon.setImageResource(R.drawable.warranty)
             holder.ll_intro_slider.setBackgroundResource(R.color.light_red)
-
 
 
         }

@@ -140,7 +140,7 @@
                 android:src="@drawable/period_women"
                 android:textAlignment="viewStart"/>
             <TextView
-                android:id="@+id/tv_next_period"
+                android:id="@+id/tv_predicted_next_period_hf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Predicted date"

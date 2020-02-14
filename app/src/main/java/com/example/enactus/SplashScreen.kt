@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.example.enactus.IntroSlider.IntroSlider
+import com.example.enactus.IntroSliderTextViewUpdate.IntroSliderTV_update_main
 
 class SplashScreen : AppCompatActivity() {
 

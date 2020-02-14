@@ -14,7 +14,6 @@ class ResetValueMidnight :BroadcastReceiver() {
         val editor = mypref.edit()
         editor.putString("waterdrank", "0")
         editor.apply()
-        Toast.makeText(context,"Value returned to zero",Toast.LENGTH_LONG).show()
 
     }
 
