@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IntroSliderTextViewUpdate.IS_TV_Update3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:id="@+id/ll_numbers"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="1"
+            android:textSize="40sp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="2"
+            android:textSize="40sp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="@color/ajib_yellow"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="3"
+            android:textSize="40sp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="4"
+            android:textSize="40sp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+
+            />
+
+        \
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_yur_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="WAKEUP TIME"
+        android:textColor="@color/ajib_yellow"
+        android:layout_below="@+id/ll_numbers"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:textSize="22sp"
+        android:textStyle="bold"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_yur_gender"
+        android:layout_marginTop="100dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="15dp"
+            android:layout_alignParentStart="true"
+            >
+
+
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/bed"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:text="WakeUp Time"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"/>
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_IS_wakeup_time"
+            android:layout_width="160dp"
+            android:layout_height="180dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="25dp"
+            android:gravity="center"
+            android:text="Select Time"
+            android:textAlignment="center"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="23sp"/>
+
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_it_slider"
+        android:layout_width="match_parent"
+        android:layout_height = "wrap_content"
+        android:layout_alignParentBottom="true">
+
+
+        <ImageView
+            android:id="@+id/btn_back_IS_Update3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/left_arrow"
+            android:layout_alignParentStart="true"
+            android:layout_margin="15dp"
+            />
+
+
+        <Button
+            android:id="@+id/btn_next_IS_Update3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NEXT"
+            android:background="@drawable/btn_background_yellow"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="15dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:padding="10dp" />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
