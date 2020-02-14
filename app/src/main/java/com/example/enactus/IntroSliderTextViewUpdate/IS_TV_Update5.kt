@@ -84,29 +84,7 @@ class IS_TV_Update5 : AppCompatActivity() {
 
         }
 
-//        num_picker_duration.minValue = 1
-//        num_picker_duration.maxValue = 15
-//
-//
-//        num_picker_recurrence.minValue = 1
-//        num_picker_recurrence.maxValue = 150
-//
-//
-//
-//
-//        num_picker_duration.setOnValueChangedListener { picker, oldVal, newVal ->
-//            Toast.makeText(this, "Duration: " + num_picker_duration.value + " days", Toast.LENGTH_SHORT).show()
-//            val IS_period_First_date_pref_editor = IS_Duration_period_pref.edit()
-//            IS_period_First_date_pref_editor.putInt("IS_Duration" , num_picker_duration.value )
-//            IS_period_First_date_pref_editor.apply()
-//        }
-//
-//        num_picker_recurrence.setOnValueChangedListener { picker, oldVal, newVal ->
-//            Toast.makeText(this, "Recurrence: " + newVal + " days", Toast.LENGTH_SHORT).show()
-//            val IS_Recurrence_period_pref_editor = IS_Recurrence_period_pref.edit()
-//            IS_Recurrence_period_pref_editor.putInt("IS_Recurrence" , newVal )
-//            IS_Recurrence_period_pref_editor.apply()
-//        }
+
 
     }
 }
