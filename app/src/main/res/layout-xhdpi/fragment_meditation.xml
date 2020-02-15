@@ -33,7 +33,7 @@
             android:layout_width="210dp"
             android:layout_height="210dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/meditation"
+            android:src="@drawable/chakra"
             android:layout_marginTop="15dp"
             />
 

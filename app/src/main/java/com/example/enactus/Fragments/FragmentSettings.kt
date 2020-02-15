@@ -53,10 +53,9 @@ class FragmentSettings : Fragment() {
         tv_contact_us.setOnClickListener {
             var intent =  Intent(Intent.ACTION_VIEW)
                 .setType("plain/text")
-                .setData(Uri.parse("enactushivaji@gmail.com"))
-                .setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail")
+                .setData(Uri.parse("mailto:enactushivaji@gmail.com"))
                 .putExtra(Intent.EXTRA_SUBJECT, "Feedback")
-            startActivity(intent);
+            startActivity(intent)
         }
 
 
@@ -79,14 +78,14 @@ class FragmentSettings : Fragment() {
             var intent_to_about_page = Intent(context,AboutEnactus::class.java)
             intent_to_about_page.putExtra("about_pcod" , "About PCOD")
             intent_to_about_page.putExtra("about_des", "Polycystic ovarian disease or syndrome (PCOD ) is a syndrome that has shaken modern world by storm . It is a common condition that affects a woman’s hormone levels. It is a must that young girls understand this disease at an early stage . Basically , PCOD is a problem that affects any women during their childbearing years (age 15 to 44). A large no. of women have PCOD but don’t know it. In one study, up to 70 percent of women with PCOD hadn’t been diagnosed . PCOD generally affects the ovaries and ovulation. The most common PCOD symptoms are:\n" +
-                    "\t\\n• Irregular periods. \n" +
-                    "\t\\n• Heavy bleeding. \n" +
-                    "\t\\n• Hair growth. \n" +
-                    "\t\\n• Acne. \n" +
-                    "\t\\n• Weight gain. \n" +
-                    "\t\\n• Male-pattern baldness. \n" +
-                    "\t\\n• Darkening of the skin like on the neck, in the groin, and under the breasts.\n" +
-                    "\t\\n• Headaches.\\n\\n\n" +
+                    "\t Irregular periods. \n" +
+                    "\t Heavy bleeding. \n" +
+                    "\t Hair growth. \n" +
+                    "\tn• Acne. \n" +
+                    "\t Weight gain. \n" +
+                    "\t Male-pattern baldness. \n" +
+                    "\t Darkening of the skin like on the neck, in the groin, and under the breasts.\n" +
+                    "\t Headaches.\\n\\n\n" +
                     "It can also affect a woman’s health in many ways : infertility, metabolic syndrome, endometrial cancer, depression along with risk for pregnancy complications and miscarriage")
             startActivity(intent_to_about_page)
         }

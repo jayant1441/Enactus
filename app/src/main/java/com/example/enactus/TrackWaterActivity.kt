@@ -90,7 +90,7 @@ class TrackWaterActivity : AppCompatActivity() {
         data.barWidth = 0.1f
 
         bar_graph_water.data = data
-
+        bar_graph_water.description.isEnabled = false
         return data_vals
 
     }

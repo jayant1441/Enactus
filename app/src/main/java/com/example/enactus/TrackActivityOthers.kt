@@ -4,6 +4,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.room.Room
 import com.example.enactus.PeriodFragmentFunction.PeriodFragmentRoomDB.PainEntity
 import com.example.enactus.PeriodFragmentFunction.PeriodFragmentRoomDB.RoomDB
@@ -30,9 +31,17 @@ class TrackActivityOthers : AppCompatActivity() {
             val db = Room.databaseBuilder(this, RoomDB::class.java, "RoomDB")
                 .fallbackToDestructiveMigration().build()
 
-            tv_display_pain_symptoms.text  = db.painDao().retrieveData_from_pain_entity()[0].PainSymptomsColumn
-            tv_display_fluid_discharge.text = db.FluidDao().retrieveData_from_fluid_entity()[0].FluidColumn
-            tv_display_sex_drive.text = db.SexDriveDao().retrieveData_from_SexDrive_entity()[0].SexDriveColumn
+            try {
+                tv_display_pain_symptoms.text  = db.painDao().retrieveData_from_pain_entity()[0].PainSymptomsColumn
+                tv_display_fluid_discharge.text = db.FluidDao().retrieveData_from_fluid_entity()[0].FluidColumn
+                tv_display_sex_drive.text = db.SexDriveDao().retrieveData_from_SexDrive_entity()[0].SexDriveColumn
+            }
+            catch (e:Exception){
+                tv_display_pain_symptoms.text = "No data"
+                tv_display_fluid_discharge.text = "No data"
+                tv_display_sex_drive.text ="No data"
+            }
+
 
         }.start()
     }
