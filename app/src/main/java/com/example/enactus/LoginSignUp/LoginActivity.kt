@@ -1,5 +1,6 @@
 package com.example.enactus.LoginSignUp
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -30,8 +31,13 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        supportActionBar!!.title = "Login"
+
         btn_forgot_password_reset_link.visibility = View.GONE
 
+        val progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("SigningUp")
+        progressDialog.setMessage("Please Wait it can take a moment")
 
         val acct = GoogleSignIn.getLastSignedInAccount(this)
         if (acct != null) {
@@ -55,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
         btn_login.setOnClickListener {
             Toast.makeText(baseContext, "Please wait", Toast.LENGTH_SHORT).show()
             NoEmptyFields()
-
+            progressDialog.show()
 
             try {
                 auth.signInWithEmailAndPassword(et_login_email.text.toString(), et_login_password.text.toString()).addOnCompleteListener(this) { task ->
@@ -63,10 +69,11 @@ class LoginActivity : AppCompatActivity() {
                         // Sign in success, update UI with the signed-in user's information
                         val user = auth.currentUser
                         updateUI(user)
+                        progressDialog.dismiss()
                         Toast.makeText(baseContext, "Login Successful", Toast.LENGTH_SHORT).show()
 
                     } else {
-                        // If sign in fails, display a message to the user.
+                        progressDialog.dismiss()
                         Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
                         updateUI(null)
                     }
@@ -84,10 +91,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
-        iv_back_login.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-            this.finish()
-        }
 
         tv_login_to_signup.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))

@@ -1,11 +1,13 @@
 package com.example.enactus.LoginSignUp
 
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.widget.ProgressBar
 import android.widget.Toast
 import com.example.enactus.MainActivity
 import com.example.enactus.R
@@ -23,48 +25,36 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
+        supportActionBar!!.title = "SignUp"
+
         auth = FirebaseAuth.getInstance()
 
-  //      val db = Room.databaseBuilder(applicationContext, RoomDB::class.java, "database_name").build()
+        val progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("SigningUp")
+        progressDialog.setMessage("Please Wait it can take a moment")
 
 
 
 
         btn_signUp.setOnClickListener {
             NoEmptyFields()
-
-
-           // if (!et_signup_email.text.isEmpty() && !et_signup_name.text.isEmpty() && !et_signup_number.text.isEmpty() && !et_signup_pass.text.isEmpty() && (et_signup_number.text.length<10 && et_signup_number.text.length>10) && (Patterns.EMAIL_ADDRESS.matcher(et_signup_email.text.toString()).matches())){
-//              if (et_signup_number.text.length == 10){
+            progressDialog.show()
                   auth.createUserWithEmailAndPassword(et_signup_email.text.toString(), et_signup_pass.text.toString()).addOnCompleteListener(this) { task ->
                       if (task.isSuccessful) {
                           // Sign in success, update UI with the signed-in user's information
                           val user = auth.currentUser
                           UploadToDatabase()
-//                          shared_pref(et_signup_name.text.toString())
-                          Toast.makeText(baseContext, "Please Wait",Toast.LENGTH_SHORT).show()
+                          progressDialog.dismiss()
                           updateUI(user)
                       }
                       else {
-                          // If sign in fails, display a message to the user.
+                          progressDialog.dismiss()
                           Toast.makeText(baseContext, "Authentication failed.",Toast.LENGTH_SHORT).show()
                       }
                   }
-
-//              }
-//            else{
-//                  et_signup_number.error = "Please enter correct number"
-//                  et_signup_number.requestFocus()
-//                  return@setOnClickListener
-//              }
             }
 
 
-
-        iv_back_signup.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-            this.finish()
-        }
 
         tv_already_have_an_acc.setOnClickListener {
             startActivity(Intent(this,
@@ -86,11 +76,6 @@ class SignUpActivity : AppCompatActivity() {
             et_signup_name.requestFocus()
             return
         }
-//        if (et_signup_number.text.isEmpty()){
-//            et_signup_number.error = "Please enter your number"
-//            et_signup_number.requestFocus()
-//            return
-//        }
         if (et_signup_email.text.isEmpty()){
             et_signup_email.error = "Please enter your email"
             et_signup_email.requestFocus()
@@ -101,11 +86,6 @@ class SignUpActivity : AppCompatActivity() {
             et_signup_pass.requestFocus()
             return
         }
-//        if (et_signup_number.text.length != 10){
-//            et_signup_number.error = "Please enter correct number"
-//            et_signup_number.requestFocus()
-//            return
-//        }
         if (et_signup_pass.text.length < 8){
             et_signup_pass.error = "Please enter 8 character long Password"
             et_signup_pass.requestFocus()

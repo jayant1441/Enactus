@@ -24,14 +24,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/iv_back_login"
-                    android:layout_width="50dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="13dp"
-                    android:src="@drawable/ic_arrow_24dp" />
-
                 <TextView
                     android:id="@+id/tv_login_to_signup"
                     android:layout_width="wrap_content"

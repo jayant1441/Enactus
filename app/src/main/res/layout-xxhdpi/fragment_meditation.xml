@@ -16,16 +16,17 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MEDITATION"
+            android:text="MEDITATION\n(in 3 steps)"
             android:textStyle="bold"
             android:textColor="@color/colorAccent"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:layout_gravity="center"
+            android:textAlignment="center"
             android:layout_margin="12dp"/>
 
         <ImageView
-            android:layout_width="240dp"
-            android:layout_height="240dp"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/chakra"
             android:layout_marginTop="15dp"
@@ -49,20 +50,67 @@
             android:layout_height="wrap_content"
             android:layout_margin="12dp">
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/flower"
-                android:layout_alignParentEnd="true"
-                />
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView3"-->
+<!--                android:layout_width="70dp"-->
+<!--                android:layout_height="70dp"-->
+<!--                android:src="@drawable/flower"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                />-->
+
 
             <ImageView
+                android:id="@+id/bird"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:src="@drawable/bird"
                 android:layout_alignParentStart="true"
                 />
+
+            <RelativeLayout
+                android:id="@+id/rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/bird"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/btn_border">
+
+
+                <TextView
+                    android:id="@+id/breathe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Breathe"
+                    android:layout_alignParentTop="true"
+                    android:textSize="15sp"
+                    android:layout_marginStart="30dp"
+                    />
+
+                <TextView
+                    android:id="@+id/hold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Hold  "
+                    android:layout_alignParentTop="true"
+                    android:textSize="15sp"
+                    android:layout_marginStart="30dp"
+                    android:layout_toEndOf="@+id/breathe"
+                    />
+
+                <TextView
+                    android:id="@+id/Release"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Release"
+                    android:layout_alignParentTop="true"
+                    android:textSize="15sp"
+                    android:layout_marginStart="30dp"
+                    android:layout_toEndOf="@+id/hold"
+                    />
+
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
