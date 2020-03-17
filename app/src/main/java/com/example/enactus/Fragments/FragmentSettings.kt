@@ -14,7 +14,12 @@ import android.widget.Toast
 import com.example.enactus.*
 import com.example.enactus.IntroSliderTextViewUpdate.IS_TV_Update2
 import com.example.enactus.LoginSignUp.LoginActivity
+import com.example.enactus.LoginSignUp.SignUpActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_fragment_settings.*
 import kotlinx.android.synthetic.main.fragment_fragment_settings.view.*
 
@@ -109,8 +114,22 @@ class FragmentSettings : Fragment() {
         val google_account_name_pref = context!!.getSharedPreferences("google_account_name_pref" , Context.MODE_PRIVATE)
         tv_login.text = google_account_name_pref.getString("Login_key","Login")
 
+        val current_user_uid = FirebaseAuth.getInstance().currentUser!!.uid
+
         if (FirebaseAuth.getInstance().currentUser != null) {
-            tv_login.text = "Welcome"
+            val users_ref = FirebaseDatabase.getInstance().getReference("/users/$current_user_uid")
+            users_ref.addValueEventListener(object : ValueEventListener{
+                override fun onCancelled(p0: DatabaseError) {
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    val users_data = p0.getValue(SignUpActivity.DatabaseDataClass::class.java)
+                    if (users_data!=null){
+                        tv_login.text = "Welcome\n" + users_data!!.name
+                    }
+                }
+
+            })
             tv_login.isEnabled = false
         }
 

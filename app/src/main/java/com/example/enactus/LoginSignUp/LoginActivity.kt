@@ -56,21 +56,19 @@ class LoginActivity : AppCompatActivity() {
             .requestEmail()
             .build()
 
-        var mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
         btn_login.setOnClickListener {
-            Toast.makeText(baseContext, "Please wait", Toast.LENGTH_SHORT).show()
             NoEmptyFields()
             progressDialog.show()
 
             try {
                 auth.signInWithEmailAndPassword(et_login_email.text.toString(), et_login_password.text.toString()).addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
                         val user = auth.currentUser
                         updateUI(user)
                         progressDialog.dismiss()
-                        Toast.makeText(baseContext, "Login Successful", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, "Welcome Back", Toast.LENGTH_SHORT).show()
 
                     } else {
                         progressDialog.dismiss()

@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.example.enactus.IntroSliderTextViewUpdate.IntroSliderTV_update_main
 import com.example.enactus.MainActivity
 import com.example.enactus.R
 import com.google.firebase.auth.FirebaseAuth
@@ -28,6 +29,7 @@ class SignUpActivity : AppCompatActivity() {
         supportActionBar!!.title = "SignUp"
 
         auth = FirebaseAuth.getInstance()
+
 
         val progressDialog = ProgressDialog(this)
         progressDialog.setTitle("SigningUp")
@@ -66,7 +68,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun updateUI(user:FirebaseUser?){
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, IntroSliderTV_update_main::class.java))
         this.finish()
     }
     private fun NoEmptyFields(){
@@ -100,16 +102,17 @@ class SignUpActivity : AppCompatActivity() {
 
 
 
-    data class DatabaseDataClass(val name: String,  val email:String, val password :String,val uuid:String)
-
+    class DatabaseDataClass(val name: String,  val email:String, val password :String,val uuid:String){
+        constructor():this("","","","")
+    }
     private fun UploadToDatabase(){
         val database = FirebaseDatabase.getInstance()
-        val ref = database.getReference("users")
+        val ref = database.getReference("/users")
 
-        val uuid:String? = ref.push().key
+        val current_user_uid = FirebaseAuth.getInstance().currentUser!!.uid
 
-        val user  = DatabaseDataClass(et_signup_name.text.toString(), et_signup_email.text.toString(), et_signup_pass.text.toString(), uuid!!)
-        ref.child(uuid).setValue(user).addOnCompleteListener {
+        val user  = DatabaseDataClass(et_signup_name.text.toString(), et_signup_email.text.toString(), et_signup_pass.text.toString(), current_user_uid)
+        ref.child(current_user_uid).setValue(user).addOnCompleteListener {
             Toast.makeText(this,"Account Created", Toast.LENGTH_SHORT).show()
         }
     }

@@ -1,4 +1,4 @@
-package com.example.enactus
+package com.example.enactus.TrackActivities
 
 import android.content.Context
 import android.os.Build
@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.room.Room
+import com.example.enactus.R
 import com.example.enactus.WaterDatabase.WaterDB
 import com.github.mikephil.charting.data.*
 import kotlinx.android.synthetic.main.activity_track_water.*
-import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
 

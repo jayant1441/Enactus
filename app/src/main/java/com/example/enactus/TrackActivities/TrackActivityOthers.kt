@@ -1,13 +1,11 @@
-package com.example.enactus
+package com.example.enactus.TrackActivities
 
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.room.Room
-import com.example.enactus.PeriodFragmentFunction.PeriodFragmentRoomDB.PainEntity
 import com.example.enactus.PeriodFragmentFunction.PeriodFragmentRoomDB.RoomDB
+import com.example.enactus.R
 import kotlinx.android.synthetic.main.activity_track_others.*
 import java.time.LocalDate
 import java.util.*

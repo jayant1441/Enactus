@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".PrivacyPolicy"></activity>
-        <activity android:name=".TrackWaterActivity" />
+        <activity android:name=".TrackActivities.TrackWaterActivity" />
         <activity
             android:name=".IntroSliderTextViewUpdate.IS_TV_Update5"
             android:theme="@style/IntroSliderUpdateTV" />
@@ -55,10 +55,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/Developer" />
         <activity
-            android:name=".TrackPeriodActivity"
+            android:name=".TrackActivities.TrackPeriodActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TrackActivityOthers"
+            android:name=".TrackActivities.TrackActivityOthers"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AboutEnactus"

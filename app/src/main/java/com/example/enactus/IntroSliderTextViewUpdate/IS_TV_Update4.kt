@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.enactus.R
+import com.example.enactus.SleepTimeDataClass
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_is__tv__update4.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -17,11 +20,14 @@ class IS_TV_Update4 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_is__tv__update4)
 
+        val current_user_uid = FirebaseAuth.getInstance().currentUser!!.uid
+
+
         val now = Calendar.getInstance()
         var timeFormat = SimpleDateFormat("hh:mm a", Locale.US)
 
-        val IS_sleep_time_pref = getSharedPreferences("IS_sleep_time_pref" , Context.MODE_PRIVATE)
-        tv_IS_sleep_time.text = IS_sleep_time_pref.getString("Sleep time", "Select Time")
+//        val IS_sleep_time_pref = getSharedPreferences("IS_sleep_time_pref" , Context.MODE_PRIVATE)
+//        tv_IS_sleep_time.text = IS_sleep_time_pref.getString("Sleep time", "Select Time")
 
 
         btn_next_IS_Update4.setOnClickListener {
@@ -40,6 +46,7 @@ class IS_TV_Update4 : AppCompatActivity() {
             finish()
         }
 
+
         tv_IS_sleep_time.setOnClickListener {
             val timePickerDialog = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
                 val selectedTime = Calendar.getInstance()
@@ -48,10 +55,12 @@ class IS_TV_Update4 : AppCompatActivity() {
                 tv_IS_sleep_time.text = timeFormat.format(selectedTime.time)
 //                StartAlarm(selectedTime)
 
-                val IS_sleep_time_pref_editor = IS_sleep_time_pref.edit()
-                IS_sleep_time_pref_editor.putString("Sleep time" ,tv_IS_sleep_time.text.toString())
-                IS_sleep_time_pref_editor.apply()
+//                val IS_sleep_time_pref_editor = IS_sleep_time_pref.edit()
+//                IS_sleep_time_pref_editor.putString("Sleep time" ,tv_IS_sleep_time.text.toString())
+//                IS_sleep_time_pref_editor.apply()
 
+                val ref = FirebaseDatabase.getInstance().getReference("/all-data/$current_user_uid")
+                ref.child("sleep-data").setValue(SleepTimeDataClass(tv_IS_sleep_time.text.toString()))
             },
                 now.get(Calendar.HOUR_OF_DAY),now.get(Calendar.MINUTE),false)
             timePickerDialog .show()
