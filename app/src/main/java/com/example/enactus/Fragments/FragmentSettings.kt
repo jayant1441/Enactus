@@ -27,6 +27,8 @@ import kotlinx.android.synthetic.main.fragment_fragment_settings.view.*
 class FragmentSettings : Fragment() {
 
 
+    lateinit var tv_login: TextView
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,7 +37,7 @@ class FragmentSettings : Fragment() {
         val myfragment_settings =
             inflater.inflate(R.layout.fragment_fragment_settings, container, false)
 
-        val tv_login = myfragment_settings.tv_login as TextView
+        tv_login = myfragment_settings.tv_login as TextView
         val tv_log_out = myfragment_settings.tv_log_out as TextView
         val tv_contact_us = myfragment_settings.tv_contact_us as TextView
         val tv_about_pcod = myfragment_settings.tv_about_pcod as TextView
@@ -97,7 +99,7 @@ class FragmentSettings : Fragment() {
 
 
         tv_privacy_policy.setOnClickListener {
-            var intent_to_privacy_policy = Intent(context,PrivacyPolicy::class.java)
+            val intent_to_privacy_policy = Intent(context,PrivacyPolicy::class.java)
             intent_to_privacy_policy.putExtra("privacy_policy_title" , "Privacy Policy")
             intent_to_privacy_policy.putExtra("privacy_policy_des" , "The app just store your name and Email address and doesn't send anywhere.\n\nBy signing in from google also we store your name and email address.\n\nAll your data is safe.")
             startActivity(intent_to_privacy_policy)

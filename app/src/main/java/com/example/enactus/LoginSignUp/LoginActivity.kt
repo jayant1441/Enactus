@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
         btn_forgot_password_reset_link.visibility = View.GONE
 
         val progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("SigningUp")
+        progressDialog.setTitle("Login")
         progressDialog.setMessage("Please Wait it can take a moment")
 
         val acct = GoogleSignIn.getLastSignedInAccount(this)

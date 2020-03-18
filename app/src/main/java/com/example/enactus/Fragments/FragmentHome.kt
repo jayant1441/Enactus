@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.enactus.*
@@ -32,6 +33,12 @@ class FragmentHome : Fragment() {
     val current_user_uid = FirebaseAuth.getInstance().currentUser!!.uid
     val databaseReference = FirebaseDatabase.getInstance().getReference("all-data/${current_user_uid}")
 
+    lateinit var tv_wakeup: TextView
+    lateinit var tv_first_period: TextView
+    lateinit var tv_predicted_next_period_hf:TextView
+    lateinit var tv_weight:TextView
+    lateinit var tv_height :TextView
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,30 +49,19 @@ class FragmentHome : Fragment() {
 
         val myfragmenthome = inflater.inflate(R.layout.fragment_home, container, false)
 
+        tv_wakeup = myfragmenthome.findViewById(R.id.tv_wakeup)
+        tv_first_period = myfragmenthome.findViewById(R.id.tv_first_period)
+        tv_predicted_next_period_hf = myfragmenthome.findViewById(R.id.tv_predicted_next_period_hf)
+        tv_weight = myfragmenthome.findViewById(R.id.tv_weight)
+        tv_height = myfragmenthome.findViewById(R.id.tv_height)
+
+
 
         return myfragmenthome
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-//        val IS_weight_pref = context!!.getSharedPreferences("IS_weight_pref", Context.MODE_PRIVATE)
-//        tv_weight.text = IS_weight_pref.getString("IS_Weight" ,"60") + " Kg"
-
-//        val IS_height_pref = context!!.getSharedPreferences("IS_height_pref", Context.MODE_PRIVATE)
-//        tv_height.text = IS_height_pref.getString("IS_Height" ,"155") + " Cm"
-//
-//        val IS_wakeup_time_pref = context!!.getSharedPreferences("IS_wakeup_time_pref" , Context.MODE_PRIVATE)
-//        tv_wakeup.text = IS_wakeup_time_pref.getString("wakeUp time", "6:30 AM")
-//
-//        val IS_period_First_date_pref = context!!.getSharedPreferences("IS_period_First_date_pref", Context.MODE_PRIVATE)
-//        tv_first_period.text = IS_period_First_date_pref.getString("IS_first_period_date","Select Date")
-//
-//        val IS_Recurrence_period_pref = context!!.getSharedPreferences("IS_Recurrence_period_pref", Context.MODE_PRIVATE)
-//        val rec = (IS_Recurrence_period_pref.getString("Recurrence_key", "120")).toString().toInt()
-//
-//        val predicted_date_pref = context!!.getSharedPreferences("predicted_date_pref" , Context.MODE_PRIVATE)
-//        tv_predicted_next_period_hf.text = predicted_date_pref.getString("predicted_date_pref_key" , "No Date to show")
 
 
         val weight_height_ref = databaseReference.child("weight-height-data")

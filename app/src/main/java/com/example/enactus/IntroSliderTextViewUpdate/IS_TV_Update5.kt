@@ -44,14 +44,10 @@ class IS_TV_Update5 : AppCompatActivity() {
 
         btn_next_IS_Update5.setOnClickListener {
 
-//            val IS_Duration_period_pref_editor = IS_Duration_period_pref.edit()
-//            IS_Duration_period_pref_editor.putString("Duration_key" , et_picker_duration.text.toString())
-//            IS_Duration_period_pref_editor.apply()
-//
-//            var IS_Recurrence_period_pref_editor = IS_Recurrence_period_pref.edit()
-//            IS_Recurrence_period_pref_editor.putString("Recurrence_key" , et_picker_recurrence.text.toString())
-//            IS_Recurrence_period_pref_editor.apply()
-
+            if (tv_IS_period_First_date.text.equals("Select Date") || et_picker_duration.text.isEmpty() || et_picker_recurrence.text.isEmpty()){
+                Toast.makeText(this,"Please fill al fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             val ref = FirebaseDatabase.getInstance().getReference("/all-data/$current_user_uid")
             ref.child("others-data").setValue(update_lastDataClass(first_date_of_period,et_picker_duration.text.toString(), et_picker_recurrence.text.toString() ))
 

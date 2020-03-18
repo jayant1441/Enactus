@@ -5,12 +5,15 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.room.Room
 import com.example.enactus.R
 import com.example.enactus.WaterDatabase.WaterDB
 import com.github.mikephil.charting.data.*
 import kotlinx.android.synthetic.main.activity_track_water.*
 import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class TrackWaterActivity : AppCompatActivity() {
@@ -30,22 +33,32 @@ class TrackWaterActivity : AppCompatActivity() {
             tv_today_date.text  = Date().toString()
         }
 
-        tv_month_name.text  = when(Calendar.MONTH){
-            1 -> "January"
-            2 -> "February"
-            3 -> "March"
-            4 -> "April"
-            5 -> "May"
-            6 -> "June"
-            7 -> "July"
-            8 -> "August"
-            9 -> "September"
-            10 -> "October"
-            11-> "November"
-            12-> "December"
+         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+             val current =  LocalDateTime.now()
+             val formatter = DateTimeFormatter.BASIC_ISO_DATE
+             val current_date = current.format(formatter)
+             val current_month = current_date.substring(4,6).toInt()
 
-            else -> "No Month to Display"
+             tv_month_name.text  = when(current_month){
+                 1 -> "January"
+                 2 -> "February"
+                 3 -> "March"
+                 4 -> "April"
+                 5 -> "May"
+                 6 -> "June"
+                 7 -> "July"
+                 8 -> "August"
+                 9 -> "September"
+                 10 -> "October"
+                 11-> "November"
+                 12-> "December"
+
+                 else -> "No date to display"
+             }
         }
+
+
+
 
 
 
