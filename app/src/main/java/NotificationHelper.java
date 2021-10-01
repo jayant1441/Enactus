@@ -40,8 +40,8 @@ public class NotificationHelper extends ContextWrapper {
 
     public NotificationCompat.Builder getChannelNotification() {
         return new NotificationCompat.Builder(getApplicationContext(), channelID)
-                .setContentTitle("Enactus")
-                .setContentText("Time to drink Water!")
+                .setContentTitle("Hydration Time")
+                .setContentText("It's been a while when you have drank water")
                 .setSmallIcon(R.drawable.enactus_logo);
     }
 }
