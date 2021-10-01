@@ -25,13 +25,13 @@ class Developer : AppCompatActivity() {
 
         }
         instagram_contact2.setOnClickListener {
-            intent_developer_contact("https://www.instagram.com/jayantdhingra3/")
+            intent_developer_contact("https://www.instagram.com/jayantdhingra3")
         }
         whatsapp_contact2.setOnClickListener {
             intent_developer_contact("https://api.whatsapp.com/send?phone=918950812364&text=Hey")
         }
         linkedin_contact2.setOnClickListener {
-            intent_developer_contact("https://in.linkedin.com/in/jayant-dhingra-30a246195?trk=people-guest_profile-result-card_result-card_full-click")
+            intent_developer_contact("https://www.linkedin.com/in/jayant-dhingra-30a246195")
         }
         gmail_contact2.setOnClickListener {
             val intent = Intent(Intent.ACTION_SENDTO)
@@ -42,7 +42,7 @@ class Developer : AppCompatActivity() {
             startActivity(intent)
         }
         github_contact2.setOnClickListener {
-            intent_developer_contact("https://github.com/jayant1441/")
+            intent_developer_contact("https://github.com/jayant1441")
         }
 
     }
