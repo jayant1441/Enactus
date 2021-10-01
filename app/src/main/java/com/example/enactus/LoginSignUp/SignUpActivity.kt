@@ -113,14 +113,14 @@ class SignUpActivity : AppCompatActivity() {
 
         val user  = DatabaseDataClass(et_signup_name.text.toString(), et_signup_email.text.toString(), et_signup_pass.text.toString(), current_user_uid)
         ref.child(current_user_uid).setValue(user).addOnCompleteListener {
-            Toast.makeText(this,"Account Created", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Your account is created successfully", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun shared_pref(name: String){
         val google_account_name_pref = getSharedPreferences("google_account_name_pref" , Context.MODE_PRIVATE)
         val google_account_name_pref_editor = google_account_name_pref.edit()
-        google_account_name_pref_editor.putString("Login_key" , "Welcome\n${name}")
+        google_account_name_pref_editor.putString("Login_key" , "Greetings\n${name}")
         google_account_name_pref_editor.apply()
 
     }
