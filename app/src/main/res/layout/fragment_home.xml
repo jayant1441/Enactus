@@ -3,102 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.FragmentHome"
     android:orientation="vertical"
-    >
+    tools:context=".Fragments.FragmentHome">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="General Info"
-        android:textStyle="bold"
-        android:textColor="@color/light_pink"
-        android:textSize="22sp"
-        android:layout_margin="10dp"/>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp">
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/weight"
-            android:textAlignment="viewStart"/>
         <TextView
-            android:id="@+id/tv_weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="wait..."
-            android:textColor="@color/light_pink"
-            android:textSize="18sp"
             android:layout_margin="10dp"
-            android:layout_alignParentEnd="true"
-            />
-    </RelativeLayout>
-    </LinearLayout>
+            android:text="General Info"
+            android:textColor="@color/light_pink"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/height"
-                android:textAlignment="viewStart"/>
-            <TextView
-                android:id="@+id/tv_height"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="wait..."
-                android:textColor="@color/light_pink"
-                android:textSize="18sp"
-                android:layout_margin="10dp"
-                android:layout_alignParentEnd="true"
-                />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/bed"
-                android:textAlignment="viewStart"/>
-            <TextView
-                android:id="@+id/tv_wakeup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="wait..."
-                android:textColor="@color/light_pink"
-                android:textSize="18sp"
-                android:layout_margin="10dp"
-                android:layout_alignParentEnd="true"
-                />
-        </RelativeLayout>
-    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -108,114 +29,194 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/weight"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/tv_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="10dp"
+                    android:text="wait..."
+                    android:textColor="@color/light_pink"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/height"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/tv_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="10dp"
+                    android:text="wait..."
+                    android:textColor="@color/light_pink"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/bed"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:id="@+id/tv_wakeup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="10dp"
+                    android:text="wait..."
+                    android:textColor="@color/light_pink"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp">
+
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:src="@drawable/sanitary_pad"
-                    android:textAlignment="viewStart"/>
+                    android:textAlignment="viewStart" />
+
                 <TextView
                     android:id="@+id/tv_first_period"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="10dp"
                     android:text="Select Date"
                     android:textColor="@color/light_pink"
-                    android:textSize="18sp"
-                    android:layout_margin="10dp"
-                    android:layout_alignParentEnd="true"
-                    />
+                    android:textSize="18sp" />
             </RelativeLayout>
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/period_women"
-                android:textAlignment="viewStart"/>
-            <TextView
-                android:id="@+id/tv_predicted_next_period_hf"
-                android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Predicted date"
-                android:textColor="@color/light_pink"
-                android:textSize="18sp"
-                android:layout_margin="10dp"
-                android:layout_alignParentEnd="true"
-                />
-        </RelativeLayout>
-    </LinearLayout>
+                android:layout_margin="12dp">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/light_pink"
-        android:layout_margin="12dp"/>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/period_women"
+                    android:textAlignment="viewStart" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Track Activities"
-        android:textStyle="bold"
-        android:textColor="@color/light_pink"
-        android:textSize="22sp"
-        android:layout_margin="10dp"/>
+                <TextView
+                    android:id="@+id/tv_predicted_next_period_hf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="10dp"
+                    android:text="Predicted date"
+                    android:textColor="@color/light_pink"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="12dp"
+            android:background="@color/light_pink" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Track Activities"
+            android:textColor="@color/light_pink"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
 
-
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/rv_home_fragment"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_margin="10dp"/>-->
+        <!--    <androidx.recyclerview.widget.RecyclerView-->
+        <!--        android:id="@+id/rv_home_fragment"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="match_parent"-->
+        <!--        android:layout_margin="10dp"/>-->
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_track_activity_period"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="22dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="5dp"
                 android:background="@drawable/background_cardview"
-                >
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
-                    android:src="@drawable/pad"
                     android:background="@color/yellow"
                     android:padding="12dp"
-                    />
+                    android:src="@drawable/pad" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:text="Period"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:layout_marginTop="5dp"/>
+                    android:textSize="20sp" />
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Keep a track of yor period and ovulation."
-                    android:textSize="15sp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="15dp"/>
+                    android:layout_marginBottom="15dp"
+                    android:text="Keep a track of yor period and ovulation."
+                    android:textSize="15sp" />
 
 
             </LinearLayout>
@@ -226,42 +227,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="22dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="5dp"
                 android:background="@drawable/background_cardview"
-                >
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
-                    android:src="@drawable/water_cycle"
                     android:background="@color/blue"
                     android:padding="12dp"
-                    />
+                    android:src="@drawable/water_cycle" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:text="Water"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:layout_marginTop="5dp"/>
+                    android:textSize="20sp" />
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Keep a track of your Hydration"
-                    android:textSize="15sp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="15dp"/>
+                    android:layout_marginBottom="15dp"
+                    android:text="Keep a track of your Hydration"
+                    android:textSize="15sp" />
 
 
             </LinearLayout>
@@ -272,53 +271,48 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="22dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="5dp"
                 android:background="@drawable/background_cardview"
-                >
+                android:orientation="vertical"
+                android:padding="5dp">
 
                 <ImageView
                     android:id="@+id/iv_track_activity_others"
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
-                    android:src="@drawable/soul"
                     android:background="@color/light_pink"
                     android:padding="12dp"
-                    />
+                    android:src="@drawable/soul" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:text="Others"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:layout_marginTop="5dp"/>
+                    android:textSize="20sp" />
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Keep a track of your other activities"
-                    android:textSize="15sp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="15dp"/>
+                    android:layout_marginBottom="15dp"
+                    android:text="Keep a track of your other activities"
+                    android:textSize="15sp" />
 
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
 
-
-
-
-</LinearLayout>
+    </LinearLayout>
 
 
 </ScrollView>

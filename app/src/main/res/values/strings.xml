@@ -13,5 +13,10 @@ We truly believe that the greatest good one can do for another is not just share
     <string name="trackotheract">Track Other Activities </string>
     <string name="currentdate">Today date</string>
     <string name="sexdrive">Sex Drive:</string>
+    <string name="Backpain">Backpain</string>
+    <string name="Title">Title</string>
+    <string name="Description">Description</string>
+
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

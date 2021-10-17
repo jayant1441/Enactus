@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,11 +17,11 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@color/white"
+            android:translationZ="2dp"
             app:layout_constraintBottom_toBottomOf="@+id/iv_physical_param_image_color"
             app:layout_constraintEnd_toEndOf="@+id/iv_physical_param_image_color"
             app:layout_constraintStart_toStartOf="@+id/iv_physical_param_image_color"
-            app:layout_constraintTop_toTopOf="@+id/iv_physical_param_image_color"
-            android:translationZ="2dp"/>
+            app:layout_constraintTop_toTopOf="@+id/iv_physical_param_image_color" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_physical_param_image_color"
@@ -32,8 +31,7 @@
             android:src="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_problem_title"
@@ -42,14 +40,13 @@
             android:layout_below="@+id/iv_physical_param_image_color"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="18dp"
-            android:text="Backpain"
+            android:text="@string/Backpain"
             android:textAlignment="center"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_physical_param_image_color" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </LinearLayout>

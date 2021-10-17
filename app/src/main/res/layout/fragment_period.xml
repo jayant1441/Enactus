@@ -3,41 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.FragmentPeriod"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".Fragments.FragmentPeriod">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-
-
-
-
+        android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/colorPrimaryDark"
-            android:layout_margin="8dp"/>
+            android:layout_margin="8dp"
+            android:background="@color/colorPrimaryDark" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pain/symptoms"
             android:layout_marginStart="10dp"
-            android:textSize="18sp"
             android:layout_marginTop="10dp"
-            android:textStyle="bold"/>
+            android:text="Pain/symptoms"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_pain_and_symptoms"
@@ -47,18 +41,18 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/colorPrimaryDark"
-            android:layout_margin="8dp"/>
+            android:layout_margin="8dp"
+            android:background="@color/colorPrimaryDark" />
 
         <TextView
             android:id="@+id/tv_fluid_vaginal_discharge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fluid/vaginal discharge"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:text="Fluid/vaginal discharge"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_fluid_vaginal_discharge"
@@ -69,123 +63,123 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/colorPrimaryDark"
-            android:layout_margin="8dp"/>
+            android:layout_margin="8dp"
+            android:background="@color/colorPrimaryDark" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/tv_pill"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Pill"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:textSize="18sp"-->
-<!--            android:textStyle="bold"/>-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tv_pill"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Pill"-->
+        <!--            android:layout_marginStart="10dp"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:textSize="18sp"-->
+        <!--            android:textStyle="bold"/>-->
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/rv_Pill"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content" />-->
+        <!--        <androidx.recyclerview.widget.RecyclerView-->
+        <!--            android:id="@+id/rv_Pill"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content" />-->
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="1dp"-->
-<!--            android:background="@color/colorPrimaryDark"-->
-<!--            android:layout_margin="8dp"/>-->
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="1dp"-->
+        <!--            android:background="@color/colorPrimaryDark"-->
+        <!--            android:layout_margin="8dp"/>-->
 
-<!--        <TextView-->
-<!--            android:id="@+id/tv_bleeding"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Bleeding"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:textSize="18sp"-->
-<!--            android:textStyle="bold"/>-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tv_bleeding"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Bleeding"-->
+        <!--            android:layout_marginStart="10dp"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:textSize="18sp"-->
+        <!--            android:textStyle="bold"/>-->
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/rv_bleeding"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content" />-->
+        <!--        <androidx.recyclerview.widget.RecyclerView-->
+        <!--            android:id="@+id/rv_bleeding"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content" />-->
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="1dp"-->
-<!--            android:background="@color/colorPrimaryDark"-->
-<!--            android:layout_margin="8dp"/>-->
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="1dp"-->
+        <!--            android:background="@color/colorPrimaryDark"-->
+        <!--            android:layout_margin="8dp"/>-->
 
-<!--        <TextView-->
-<!--            android:id="@+id/tv_Sleep"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Sleep"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:textSize="18sp"-->
-<!--            android:textStyle="bold"/>-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tv_Sleep"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Sleep"-->
+        <!--            android:layout_marginStart="10dp"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:textSize="18sp"-->
+        <!--            android:textStyle="bold"/>-->
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/rv_Sleep"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content" />-->
+        <!--        <androidx.recyclerview.widget.RecyclerView-->
+        <!--            android:id="@+id/rv_Sleep"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content" />-->
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="1dp"-->
-<!--            android:background="@color/colorPrimaryDark"-->
-<!--            android:layout_margin="8dp"/>-->
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="1dp"-->
+        <!--            android:background="@color/colorPrimaryDark"-->
+        <!--            android:layout_margin="8dp"/>-->
 
-<!--        <TextView-->
-<!--            android:id="@+id/tv_Energy"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Energy"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:textSize="18sp"-->
-<!--            android:textStyle="bold"/>-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tv_Energy"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Energy"-->
+        <!--            android:layout_marginStart="10dp"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:textSize="18sp"-->
+        <!--            android:textStyle="bold"/>-->
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/rv_Energy"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content" />-->
+        <!--        <androidx.recyclerview.widget.RecyclerView-->
+        <!--            android:id="@+id/rv_Energy"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content" />-->
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="1dp"-->
-<!--            android:background="@color/colorPrimaryDark"-->
-<!--            android:layout_margin="8dp"/>-->
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="1dp"-->
+        <!--            android:background="@color/colorPrimaryDark"-->
+        <!--            android:layout_margin="8dp"/>-->
 
-<!--        <TextView-->
-<!--            android:id="@+id/tv_Moods"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Moods"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:textSize="18sp"-->
-<!--            android:textStyle="bold"/>-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tv_Moods"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Moods"-->
+        <!--            android:layout_marginStart="10dp"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:textSize="18sp"-->
+        <!--            android:textStyle="bold"/>-->
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/rv_Moods"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content" />-->
+        <!--        <androidx.recyclerview.widget.RecyclerView-->
+        <!--            android:id="@+id/rv_Moods"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content" />-->
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="1dp"-->
-<!--            android:background="@color/colorPrimaryDark"-->
-<!--            android:layout_margin="8dp"/>-->
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="1dp"-->
+        <!--            android:background="@color/colorPrimaryDark"-->
+        <!--            android:layout_margin="8dp"/>-->
 
         <TextView
             android:id="@+id/tv_Sex"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sex"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:text="Sex"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_Sex"
@@ -195,36 +189,35 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/colorPrimaryDark"
-            android:layout_margin="8dp"/>
+            android:layout_margin="8dp"
+            android:background="@color/colorPrimaryDark" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/tv_State_of_mind"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="State of Mind"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:textSize="18sp"-->
-<!--            android:textStyle="bold"/>-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tv_State_of_mind"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="State of Mind"-->
+        <!--            android:layout_marginStart="10dp"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:textSize="18sp"-->
+        <!--            android:textStyle="bold"/>-->
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/rv_State_of_mind"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content" />-->
+        <!--        <androidx.recyclerview.widget.RecyclerView-->
+        <!--            android:id="@+id/rv_State_of_mind"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content" />-->
 
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="1dp"-->
-<!--            android:background="@color/colorPrimaryDark"-->
-<!--            android:layout_margin="8dp"/>-->
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="1dp"-->
+        <!--            android:background="@color/colorPrimaryDark"-->
+        <!--            android:layout_margin="8dp"/>-->
 
         <EditText
             android:id="@+id/et_anything_to_remember"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:hint="Any point you want to remember"/>
-
+            android:hint="Any point you want to remember" />
 
 
         <LinearLayout
@@ -247,17 +240,16 @@
                 android:id="@+id/btn_update_period_frag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Save Notes"
-                android:layout_weight="1"
                 android:layout_margin="7dp"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                android:layout_weight="1"
                 android:background="@drawable/btn_update"
-                android:textColor="@color/white"/>
+                android:text="Save Notes"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </LinearLayout>
-
 
 
 </ScrollView>
