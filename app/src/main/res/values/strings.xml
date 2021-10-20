@@ -13,5 +13,22 @@ We truly believe that the greatest good one can do for another is not just share
     <string name="trackotheract">Track Other Activities </string>
     <string name="currentdate">Today date</string>
     <string name="sexdrive">Sex Drive:</string>
+    <string name="Backpain">Backpain</string>
+    <string name="Title">Title</string>
+    <string name="Description">Description</string>
+    <string name="SignUp">Sign Up</string>
+    <string name="Signintoyouraccount">Sign in to your account</string>
+    <string name="Login">Log in</string>
+    <string name="Forgotpassword">Forgot password?</string>
+    <string name="resetlink">Send reset link</string>
+    <string name="Termandcondition">By Signing in you agree with the Term and condition </string>
+    <string name="SleepTime">Sleep Time</string>
+    <string name="SelectTime">Select Time</string>
+    <string name="NEXT">NEXT</string>
+    <string name="appdefine">An app made especially for PCOD patients, which keep track of all their activities</string>
+    About PCOD
+    <string name="AboutPCOD">About PCOD</string>
+    <string name="JayantDhingra">Jayant Dhingra</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
