@@ -17,18 +17,21 @@ class FragmentMeditation : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if(savedInstanceState!=null && savedInstanceState.containsKey("media_player_state")){
+        if (savedInstanceState != null && savedInstanceState.containsKey("media_player_state")) {
             isStarted = savedInstanceState.getBoolean("media_player_state");
-        }
-        else {
+        } else {
             isStarted = false
         }
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
-        val myfragment_meditation =  inflater.inflate(R.layout.fragment_meditation, container, false)
+        val myfragment_meditation = inflater.inflate(R.layout.fragment_meditation, container, false)
 
         val btn_pause_play = myfragment_meditation.btn_pause_play as ToggleButton
 
@@ -64,7 +67,6 @@ class FragmentMeditation : Fragment() {
     }
 
 
-
     override fun onDestroyView() {
         super.onDestroyView()
         val mp = MediaPlayer.create(context, R.raw.meditation_music)
@@ -79,7 +81,7 @@ class FragmentMeditation : Fragment() {
 
     }
 
-     override fun onSaveInstanceState(outState: Bundle) {
+    override fun onSaveInstanceState(outState: Bundle) {
         outState.putBoolean("media_player_state", true)
         super.onSaveInstanceState(outState)
     }

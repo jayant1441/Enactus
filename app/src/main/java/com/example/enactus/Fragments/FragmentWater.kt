@@ -1,12 +1,10 @@
 package com.example.enactus.Fragments
 
 import android.app.AlarmManager
-import android.app.AlarmManager.RTC
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.database.sqlite.SQLiteConstraintException
-import android.icu.util.IndianCalendar
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -19,13 +17,15 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.room.Room
-import com.example.enactus.*
+import com.example.enactus.FragmentWaterSettings
+import com.example.enactus.R
+import com.example.enactus.ResetValueMidnight
 import com.example.enactus.WaterDatabase.WaterDB
 import com.example.enactus.WaterDatabase.WaterEntity
+import com.example.enactus.WaterTips
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_fragment_water.*
 import kotlinx.android.synthetic.main.fragment_fragment_water.view.*
-import java.lang.Exception
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -60,8 +60,6 @@ class FragmentWater : Fragment() {
     }
 
 
-
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -70,7 +68,7 @@ class FragmentWater : Fragment() {
 
         retrievedata()
 
-       reset_value_at_midnight()
+        reset_value_at_midnight()
 
 
 
@@ -84,7 +82,11 @@ class FragmentWater : Fragment() {
                 if (water_drank_new >= 3100) {
 
                     tv_water_already_drank.text = water_drank_new.toString()
-                    Toast.makeText(context, "Congratulations on completing the target.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        context,
+                        "Congratulations on completing the target.",
+                        Toast.LENGTH_LONG
+                    ).show()
 
                 } else {
                     tv_water_already_drank.text = water_drank_new.toString()
@@ -93,8 +95,8 @@ class FragmentWater : Fragment() {
 
                 savedata()
 
-                Thread{
-                   save_data_to_room_DB()
+                Thread {
+                    save_data_to_room_DB()
                 }.start()
 
 
@@ -106,10 +108,7 @@ class FragmentWater : Fragment() {
         }
 
 
-
-
     }
-
 
 
     private fun savedata() {
@@ -120,15 +119,11 @@ class FragmentWater : Fragment() {
     }
 
 
-
-
     private fun retrievedata() {
         val mypref = this.getActivity()!!.getSharedPreferences("pref", Context.MODE_PRIVATE)
         val newest_water = mypref.getString("waterdrank", "0")
         tv_water_already_drank.text = newest_water
     }
-
-
 
 
     private fun getCurrentDate() {
@@ -143,29 +138,26 @@ class FragmentWater : Fragment() {
     }
 
 
-
-
     private fun reset_value_at_midnight() {
 
-        var midnight  = Calendar.getInstance()
-        midnight.set(Calendar.HOUR_OF_DAY,0)
-        midnight.set(Calendar.MINUTE,0)
-        midnight.set(Calendar.SECOND,0)
-        if(midnight.before(Calendar.getInstance())){
-            midnight.add(Calendar.DATE,1)
+        var midnight = Calendar.getInstance()
+        midnight.set(Calendar.HOUR_OF_DAY, 0)
+        midnight.set(Calendar.MINUTE, 0)
+        midnight.set(Calendar.SECOND, 0)
+        if (midnight.before(Calendar.getInstance())) {
+            midnight.add(Calendar.DATE, 1)
         }
         var alarmManager = context!!.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         var intent = Intent(context, ResetValueMidnight::class.java)
         val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0)
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP,midnight.timeInMillis,pendingIntent)
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, midnight.timeInMillis, pendingIntent)
 //        var reset_value_shared_pref = context!!.getSharedPreferences("reset_value_pref", Context.MODE_PRIVATE)
 //        var value = reset_value_shared_pref.getString("reset_value","reset failed")
 //        tv_water_already_drank.text = value
     }
 
 
-
-    private fun save_data_to_room_DB(){
+    private fun save_data_to_room_DB() {
 
         val water_db = Room.databaseBuilder(context!!, WaterDB::class.java, "WaterDB").build()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -175,38 +167,40 @@ class FragmentWater : Fragment() {
 
             try {
                 try {
-                    val water_data = WaterEntity(current_date, tv_water_already_drank.text.toString(), current_date.substring(6).toInt(), Calendar.MONTH)
+                    val water_data = WaterEntity(
+                        current_date,
+                        tv_water_already_drank.text.toString(),
+                        current_date.substring(6).toInt(),
+                        Calendar.MONTH
+                    )
                     water_db.WaterDAO().insert_to_water_entity(water_data)
-                }
-                catch (ex:SQLiteConstraintException){
-                    val mdata = WaterEntity(current_date, tv_water_already_drank.text.toString(),current_date.substring(6).toInt(), Calendar.MONTH)
+                } catch (ex: SQLiteConstraintException) {
+                    val mdata = WaterEntity(
+                        current_date,
+                        tv_water_already_drank.text.toString(),
+                        current_date.substring(6).toInt(),
+                        Calendar.MONTH
+                    )
                     water_db.WaterDAO().update_in_water_entity(mdata)
 
                 }
-            }
-            catch (e:Exception){
-                Toast.makeText(context!!,"error: " + e , Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                Toast.makeText(context!!, "error: " + e, Toast.LENGTH_SHORT).show()
             }
         }
-        Log.d("taging",water_db.WaterDAO().retrieve_data_from_Water_entity().toString())
-        Log.d("taging",water_db.WaterDAO().retrieve_data_from_Water_entity()[0].toString())
+        Log.d("taging", water_db.WaterDAO().retrieve_data_from_Water_entity().toString())
+        Log.d("taging", water_db.WaterDAO().retrieve_data_from_Water_entity()[0].toString())
         water_db.WaterDAO().retrieve_data_from_Water_entity().forEach {
-            for(i in it.date){
-                Log.d("taging",i.toString() + " hi")
+            for (i in it.date) {
+                Log.d("taging", i.toString() + " hi")
             }
-            Log.d("taging",it.date)
-            Log.d("taging",it.water_drink_today)
-            Log.d("taging",it.day_of_month.toString())
-            Log.d("taging",it.month_name.toString())
+            Log.d("taging", it.date)
+            Log.d("taging", it.water_drink_today)
+            Log.d("taging", it.day_of_month.toString())
+            Log.d("taging", it.month_name.toString())
         }
 
     }
-
-
-
-
-
-
 
 
 }

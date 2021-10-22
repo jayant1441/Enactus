@@ -1,7 +1,6 @@
 package com.example.enactus.Fragments
 
 
-import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,14 +9,19 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.enactus.*
+import com.example.enactus.HeightWeightDataClass
 import com.example.enactus.IntroSliderTextViewUpdate.IS_TV_Update5
 import com.example.enactus.R
 import com.example.enactus.TrackActivities.TrackActivityOthers
 import com.example.enactus.TrackActivities.TrackPeriodActivity
 import com.example.enactus.TrackActivities.TrackWaterActivity
+import com.example.enactus.update_lastDataClass
+import com.example.enactus.wakeUpTimeDataClass
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -31,13 +35,14 @@ class FragmentHome : Fragment() {
     val now = Calendar.getInstance()
 
     val current_user_uid = FirebaseAuth.getInstance().currentUser!!.uid
-    val databaseReference = FirebaseDatabase.getInstance().getReference("all-data/${current_user_uid}")
+    val databaseReference =
+        FirebaseDatabase.getInstance().getReference("all-data/${current_user_uid}")
 
     lateinit var tv_wakeup: TextView
     lateinit var tv_first_period: TextView
-    lateinit var tv_predicted_next_period_hf:TextView
-    lateinit var tv_weight:TextView
-    lateinit var tv_height :TextView
+    lateinit var tv_predicted_next_period_hf: TextView
+    lateinit var tv_weight: TextView
+    lateinit var tv_height: TextView
 
 
     override fun onCreateView(
@@ -84,10 +89,9 @@ class FragmentHome : Fragment() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 val wakeUpTime = p0.getValue(wakeUpTimeDataClass::class.java)
-                if (wakeUpTime!=null){
+                if (wakeUpTime != null) {
                     tv_wakeup.text = wakeUpTime!!.wakeUpTime
-                }
-                else{
+                } else {
                     return
                 }
             }
@@ -107,7 +111,7 @@ class FragmentHome : Fragment() {
                     val recurrence = updateLastdata.recurrence
 
                     if (recurrence != null) {
-                        if (!tv_first_period.equals("Select Date")){
+                        if (!tv_first_period.equals("Select Date")) {
                             var dateInString = tv_first_period.text.toString()
                             var sdf = SimpleDateFormat("yyyy-MM-dd", Locale.US)
                             val c = Calendar.getInstance()
@@ -152,12 +156,16 @@ class FragmentHome : Fragment() {
 
 
         tv_first_period.setOnClickListener {
-            startActivity(Intent(context,IS_TV_Update5::class.java))
+            startActivity(Intent(context, IS_TV_Update5::class.java))
             Toast.makeText(context, "You can change settings here", Toast.LENGTH_SHORT).show()
         }
 
         tv_predicted_next_period_hf.setOnClickListener {
-            Toast.makeText(context, "This is the predicted date for your period", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                context,
+                "This is the predicted date for your period",
+                Toast.LENGTH_SHORT
+            ).show()
 
         }
 

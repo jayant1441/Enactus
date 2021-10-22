@@ -2,24 +2,23 @@ package com.example.enactus.Fragments
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.enactus.PeriodFragmentFunction.Adapters.RV_AdapterFluidDischarge
 import com.example.enactus.PeriodFragmentFunction.Adapters.RV_AdapterPain
-import com.example.enactus.R
 import com.example.enactus.PeriodFragmentFunction.Adapters.RV_AdapterPhysicalParams
 import com.example.enactus.PeriodFragmentFunction.Adapters.RV_SexDriveAdapter
 import com.example.enactus.PeriodFragmentFunction.DataClass.RV_FluidDataClass
 import com.example.enactus.PeriodFragmentFunction.DataClass.RV_PainDataClass
 import com.example.enactus.PeriodFragmentFunction.DataClass.RV_SexDataClass
 import com.example.enactus.PeriodFragmentFunction.DataClass.RecyclerViewDataClass
+import com.example.enactus.R
 import kotlinx.android.synthetic.main.fragment_period.*
 import kotlinx.android.synthetic.main.fragment_period.view.*
-import kotlin.collections.ArrayList
 
 
 class FragmentPeriod : Fragment() {
@@ -29,9 +28,14 @@ class FragmentPeriod : Fragment() {
     var listOfFluidItems = ArrayList<RV_FluidDataClass>()
     var listOfSexDriveItems = ArrayList<RV_SexDataClass>()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
-        val IS_sleep_time_pref = context!!.getSharedPreferences("IS_sleep_time_pref" , Context.MODE_PRIVATE)
+        val IS_sleep_time_pref =
+            context!!.getSharedPreferences("IS_sleep_time_pref", Context.MODE_PRIVATE)
         val IS_weight_pref = context!!.getSharedPreferences("IS_weight_pref", Context.MODE_PRIVATE)
         val IS_height_pref = context!!.getSharedPreferences("IS_height_pref", Context.MODE_PRIVATE)
 
@@ -41,9 +45,30 @@ class FragmentPeriod : Fragment() {
         LoadFluidRV()
         LoadSexDriveRV()
 
-        listOfItems.add(RecyclerViewDataClass(R.drawable.weight, "Weight", R.color.purple, IS_weight_pref.getString("IS_Weight","60") +" Kg" ))
-        listOfItems.add(RecyclerViewDataClass(R.drawable.height, "Height", R.color.purple,IS_height_pref.getString("IS_Height","155") + " Cm"))
-        listOfItems.add(RecyclerViewDataClass(R.drawable.sleep, "Sleep", R.color.purple, IS_sleep_time_pref.getString("Sleep time", "No Time\nSelected")))
+        listOfItems.add(
+            RecyclerViewDataClass(
+                R.drawable.weight,
+                "Weight",
+                R.color.purple,
+                IS_weight_pref.getString("IS_Weight", "60") + " Kg"
+            )
+        )
+        listOfItems.add(
+            RecyclerViewDataClass(
+                R.drawable.height,
+                "Height",
+                R.color.purple,
+                IS_height_pref.getString("IS_Height", "155") + " Cm"
+            )
+        )
+        listOfItems.add(
+            RecyclerViewDataClass(
+                R.drawable.sleep,
+                "Sleep",
+                R.color.purple,
+                IS_sleep_time_pref.getString("Sleep time", "No Time\nSelected")
+            )
+        )
 
 
         val rv = myfragment_period.recycler_view as RecyclerView
@@ -67,8 +92,9 @@ class FragmentPeriod : Fragment() {
 
 
 
-        rv_pain_and_symptoms.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        rv_pain_and_symptoms.adapter = RV_AdapterPain(context!!, listofPainItems )
+        rv_pain_and_symptoms.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        rv_pain_and_symptoms.adapter = RV_AdapterPain(context!!, listofPainItems)
 
         rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rv.adapter = RV_AdapterPhysicalParams(context!!, listOfItems)

@@ -10,14 +10,13 @@ import androidx.room.Update
 interface WaterDAO {
 
     @Insert
-    fun insert_to_water_entity(water_drink_data : WaterEntity )
+    fun insert_to_water_entity(water_drink_data: WaterEntity)
 
     @Query("Select * from WaterEntity order by date")
-    fun retrieve_data_from_Water_entity() : List<WaterEntity>
+    fun retrieve_data_from_Water_entity(): List<WaterEntity>
 
     @Update
-    fun update_in_water_entity(water_drink_data : WaterEntity )
-
+    fun update_in_water_entity(water_drink_data: WaterEntity)
 
 
 }
