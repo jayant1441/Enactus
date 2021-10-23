@@ -8,8 +8,8 @@ import androidx.room.Query
 interface FluidDao {
 
     @Insert
-    fun insert_in_FluidEntity( users: FluidEntity)
+    fun insert_in_FluidEntity(users: FluidEntity)
 
     @Query("Select * from FluidEntity order by `Current_date` desc")
-    fun retrieveData_from_fluid_entity() : List<FluidEntity>
+    fun retrieveData_from_fluid_entity(): List<FluidEntity>
 }

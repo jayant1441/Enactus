@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
             val personFamilyName = acct.familyName
             val personEmail = acct.email
             val personId = acct.id
-           Log.d("hiworld" , personName!!)
+            Log.d("hiworld", personName!!)
         }
 
         auth = FirebaseAuth.getInstance()
@@ -63,7 +63,10 @@ class LoginActivity : AppCompatActivity() {
             progressDialog.show()
 
             try {
-                auth.signInWithEmailAndPassword(et_login_email.text.toString(), et_login_password.text.toString()).addOnCompleteListener(this) { task ->
+                auth.signInWithEmailAndPassword(
+                    et_login_email.text.toString(),
+                    et_login_password.text.toString()
+                ).addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         val user = auth.currentUser
                         updateUI(user)
@@ -72,13 +75,13 @@ class LoginActivity : AppCompatActivity() {
 
                     } else {
                         progressDialog.dismiss()
-                        Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT)
+                            .show()
                         updateUI(null)
                     }
 
                 }
-            }
-            catch (e:Exception){
+            } catch (e: Exception) {
                 Toast.makeText(baseContext, "Exception", Toast.LENGTH_SHORT).show()
             }
         }
@@ -109,28 +112,30 @@ class LoginActivity : AppCompatActivity() {
 
         btn_forgot_password_reset_link.setOnClickListener {
 
-            if (et_login_email.text.isEmpty()){
+            if (et_login_email.text.isEmpty()) {
                 et_login_email.error = "Please enter your email"
                 et_login_email.requestFocus()
                 return@setOnClickListener
-            }
-            else {
-                if (Patterns.EMAIL_ADDRESS.matcher(et_login_email.text.toString()).matches()){
+            } else {
+                if (Patterns.EMAIL_ADDRESS.matcher(et_login_email.text.toString()).matches()) {
                     val auth = FirebaseAuth.getInstance()
                     val emailAddress = et_login_email.text.toString()
 
                     auth.sendPasswordResetEmail(emailAddress)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                Toast.makeText(this,"Password reset email sent" , Toast.LENGTH_SHORT ).show()
-                            }
-                            else{
-                                Toast.makeText(this,"User doesn't exist", Toast.LENGTH_SHORT ).show()
+                                Toast.makeText(
+                                    this,
+                                    "Password reset email sent",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            } else {
+                                Toast.makeText(this, "User doesn't exist", Toast.LENGTH_SHORT)
+                                    .show()
 
                             }
                         }
-                }
-                else{
+                } else {
                     et_login_email.error = "Please enter correct email"
                     et_login_email.requestFocus()
                     return@setOnClickListener
@@ -139,8 +144,6 @@ class LoginActivity : AppCompatActivity() {
             }
 
         }
-
-
 
 
     }
@@ -153,24 +156,25 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
-
-
     }
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account = completedTask.getResult(ApiException::class.java)
-            startActivity(Intent(this,MainActivity::class.java))
-            val google_account_name_pref = getSharedPreferences("google_account_name_pref" ,Context.MODE_PRIVATE)
+            startActivity(Intent(this, MainActivity::class.java))
+            val google_account_name_pref =
+                getSharedPreferences("google_account_name_pref", Context.MODE_PRIVATE)
             val google_account_name_pref_editor = google_account_name_pref.edit()
-            google_account_name_pref_editor.putString("Login_key" , "Welcome\n${account!!.displayName}")
+            google_account_name_pref_editor.putString(
+                "Login_key",
+                "Welcome\n${account!!.displayName}"
+            )
             google_account_name_pref_editor.apply()
 
-            Toast.makeText(this,"Welcome : " + account!!.displayName , Toast.LENGTH_SHORT ).show()
-        }
-        catch (e: ApiException) {
+            Toast.makeText(this, "Welcome : " + account!!.displayName, Toast.LENGTH_SHORT).show()
+        } catch (e: ApiException) {
             updateUI(null)
-            Toast.makeText(this,"Error: " + e , Toast.LENGTH_SHORT ).show()
+            Toast.makeText(this, "Error: " + e, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -179,32 +183,31 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
-        if (currentUser != null){
-                updateUI(currentUser)
+        if (currentUser != null) {
+            updateUI(currentUser)
         }
     }
 
-    private fun updateUI(user:FirebaseUser?){
+    private fun updateUI(user: FirebaseUser?) {
         val currentUser = auth.currentUser
-        if (currentUser!=null) {
+        if (currentUser != null) {
             startActivity(Intent(this, MainActivity::class.java))
             this.finish()
-        }
-        else{
+        } else {
             Toast.makeText(baseContext, "User Doesn't Exist", Toast.LENGTH_SHORT).show()
         }
 
     }
 
 
-    private fun NoEmptyFields(){
+    private fun NoEmptyFields() {
 
-        if (et_login_email.text.isEmpty()){
+        if (et_login_email.text.isEmpty()) {
             et_login_email.error = "Please enter your email"
             et_login_email.requestFocus()
             return
         }
-        if (et_login_password.text.isEmpty()){
+        if (et_login_password.text.isEmpty()) {
             et_login_password.error = "Please enter password"
             et_login_password.requestFocus()
             return

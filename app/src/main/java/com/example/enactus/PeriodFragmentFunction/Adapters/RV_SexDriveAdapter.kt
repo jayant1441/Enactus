@@ -17,13 +17,17 @@ import kotlinx.android.synthetic.main.recycler_view_ticket.view.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
-import kotlin.collections.ArrayList
 
-class RV_SexDriveAdapter(var context: Context, var listOfSexDriveItems:ArrayList<RV_SexDataClass>): RecyclerView.Adapter<RV_SexDriveAdapter.MyViewHolder>(){
+class RV_SexDriveAdapter(
+    var context: Context,
+    var listOfSexDriveItems: ArrayList<RV_SexDataClass>
+) : RecyclerView.Adapter<RV_SexDriveAdapter.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_view_ticket,parent,false))
+        return MyViewHolder(
+            LayoutInflater.from(context).inflate(R.layout.recycler_view_ticket, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
@@ -39,7 +43,8 @@ class RV_SexDriveAdapter(var context: Context, var listOfSexDriveItems:ArrayList
         holder.constraint_layout_rv_ticket.setOnClickListener {
 
             Toast.makeText(context, holder.tv_sex_drive_title.text, Toast.LENGTH_SHORT).show()
-            holder.iv_sex_drive_image_color.setImageResource(R.color.red
+            holder.iv_sex_drive_image_color.setImageResource(
+                R.color.red
             )
 
 
@@ -49,14 +54,16 @@ class RV_SexDriveAdapter(var context: Context, var listOfSexDriveItems:ArrayList
                 val current_date = current.format(formatter)
 
                 Thread {
-                    val db = Room.databaseBuilder(context!!, RoomDB::class.java, "RoomDB").fallbackToDestructiveMigration().build()
+                    val db = Room.databaseBuilder(context!!, RoomDB::class.java, "RoomDB")
+                        .fallbackToDestructiveMigration().build()
                     try {
                         db.SexDriveDao().insert_in_SexDriveEntity(
                             SexDriveEntity(
                                 current_date,
                                 Calendar.DAY_OF_MONTH,
                                 Calendar.DAY_OF_MONTH,
-                                holder.tv_sex_drive_title.text.toString())
+                                holder.tv_sex_drive_title.text.toString()
+                            )
                         )
 
 
@@ -66,26 +73,25 @@ class RV_SexDriveAdapter(var context: Context, var listOfSexDriveItems:ArrayList
 
                     }
 
-                    db.SexDriveDao().retrieveData_from_SexDrive_entity().forEach{
-                        Log.i("tag",it.Current_date)
-                        Log.i("tag",it.current_month.toString())
-                        Log.i("tag",it.current_day.toString())
-                        Log.i("tag",it.SexDriveColumn)
+                    db.SexDriveDao().retrieveData_from_SexDrive_entity().forEach {
+                        Log.i("tag", it.Current_date)
+                        Log.i("tag", it.current_month.toString())
+                        Log.i("tag", it.current_day.toString())
+                        Log.i("tag", it.SexDriveColumn)
                         Log.i("tag", Calendar.getInstance().toString())
 
                     }
 
 
                 }.start()
-            }
-            else{
+            } else {
 
             }
         }
 
     }
 
-    inner class MyViewHolder(itemview: View): RecyclerView.ViewHolder(itemview){
+    inner class MyViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
         var tv_sex_drive_title = itemview.tv_problem_title
         var iv_sex_drive_image = itemview.iv_physical_param_image
         var iv_sex_drive_image_color = itemview.iv_physical_param_image_color

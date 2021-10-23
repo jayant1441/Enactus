@@ -1,10 +1,8 @@
 package com.example.enactus.TrackActivities
 
-import android.app.DatePickerDialog
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.enactus.R
 import com.example.enactus.update_lastDataClass
 import com.google.firebase.auth.FirebaseAuth
@@ -18,14 +16,15 @@ import java.util.*
 
 class TrackPeriodActivity : AppCompatActivity() {
 
-    var formate = SimpleDateFormat("dd MMM, YYYY",Locale.US)
+    var formate = SimpleDateFormat("dd MMM, YYYY", Locale.US)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_track_period)
 
         val current_user_uid = FirebaseAuth.getInstance().currentUser!!.uid
-        val databaseReference = FirebaseDatabase.getInstance().getReference("all-data/${current_user_uid}")
+        val databaseReference =
+            FirebaseDatabase.getInstance().getReference("all-data/${current_user_uid}")
 
 
 //        val IS_period_First_date_pref = getSharedPreferences("IS_period_First_date_pref", Context.MODE_PRIVATE)
@@ -47,14 +46,12 @@ class TrackPeriodActivity : AppCompatActivity() {
         var now = Calendar.getInstance()
 
         tv_first_day_of_period.setOnClickListener {
-           Toast.makeText(this, "To change setting go to settings tab",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "To change setting go to settings tab", Toast.LENGTH_SHORT).show()
         }
 
         tv_prediction_next_period.setOnClickListener {
-            Toast.makeText(this, "To change setting go to settings tab",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "To change setting go to settings tab", Toast.LENGTH_SHORT).show()
         }
-
-
 
 
         val others_data_ref = databaseReference.child("others-data")
@@ -89,7 +86,6 @@ class TrackPeriodActivity : AppCompatActivity() {
             }
 
         })
-
 
 
     }

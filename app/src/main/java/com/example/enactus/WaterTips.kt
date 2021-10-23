@@ -1,9 +1,7 @@
 package com.example.enactus
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_water_tips.*
+import androidx.appcompat.app.AppCompatActivity
 
 class WaterTips : AppCompatActivity() {
 

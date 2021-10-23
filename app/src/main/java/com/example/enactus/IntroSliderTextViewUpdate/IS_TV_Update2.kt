@@ -1,6 +1,5 @@
 package com.example.enactus.IntroSliderTextViewUpdate
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -28,17 +27,15 @@ class IS_TV_Update2 : AppCompatActivity() {
 //        et_picker_height.setText(IS_height_pref.getString("IS_Height" ,""))
 
 
-
-
         btn_next_IS_Update2.setOnClickListener {
 
-            if(et_picker_weight.text.isEmpty()){
+            if (et_picker_weight.text.isEmpty()) {
                 et_picker_weight.error = "Enter your Weight"
                 et_picker_weight.requestFocus()
                 return@setOnClickListener
             }
 
-            if (et_picker_height.text.isEmpty()){
+            if (et_picker_height.text.isEmpty()) {
                 et_picker_height.error = "Enter your Weight"
                 et_picker_height.requestFocus()
                 return@setOnClickListener
@@ -46,7 +43,12 @@ class IS_TV_Update2 : AppCompatActivity() {
 
 
             val ref = FirebaseDatabase.getInstance().getReference("/all-data/$current_user_uid")
-            ref.child("weight-height-data").setValue(HeightWeightDataClass(et_picker_weight.text.toString(), et_picker_height.text.toString()))
+            ref.child("weight-height-data").setValue(
+                HeightWeightDataClass(
+                    et_picker_weight.text.toString(),
+                    et_picker_height.text.toString()
+                )
+            )
 
 //            val IS_weight_pref_editor = IS_weight_pref.edit()
 //            IS_weight_pref_editor.putString("IS_Weight" , et_picker_weight.text.toString() )
@@ -56,19 +58,17 @@ class IS_TV_Update2 : AppCompatActivity() {
 //            IS_height_pref_editor.putString("IS_Height" ,et_picker_height.text.toString() )
 //            IS_height_pref_editor.apply()
 
-            startActivity(Intent(this,IS_TV_Update3::class.java))
+            startActivity(Intent(this, IS_TV_Update3::class.java))
             finish()
         }
 
         btn_back_IS_Update2.setOnClickListener {
-            startActivity(Intent(this,IntroSliderTV_update_main::class.java))
+            startActivity(Intent(this, IntroSliderTV_update_main::class.java))
             finish()
         }
 
 
-
     }
-
 
 
 }

@@ -1,7 +1,7 @@
 package com.example.enactus
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_about_enactus.*
 
 class AboutEnactus : AppCompatActivity() {
@@ -15,7 +15,6 @@ class AboutEnactus : AppCompatActivity() {
 
         tv_title_intent.text = intent.extras!!.getString("about_pcod")
         tv_des_intent.text = intent.extras!!.getString("about_des")
-
 
 
     }

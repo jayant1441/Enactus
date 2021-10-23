@@ -1,7 +1,6 @@
 package com.example.enactus.PeriodFragmentFunction.Adapters
 
 import android.content.Context
-import android.icu.util.IndianCalendar
 import android.os.Build
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,12 +17,14 @@ import kotlinx.android.synthetic.main.recycler_view_ticket.view.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
-import kotlin.collections.ArrayList
 
 
-class RV_AdapterPain(var context: Context, var listOfPainItems:ArrayList<RV_PainDataClass>):RecyclerView.Adapter<RV_AdapterPain.MyViewHolder>(){
+class RV_AdapterPain(var context: Context, var listOfPainItems: ArrayList<RV_PainDataClass>) :
+    RecyclerView.Adapter<RV_AdapterPain.MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_view_ticket,parent,false))
+        return MyViewHolder(
+            LayoutInflater.from(context).inflate(R.layout.recycler_view_ticket, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
@@ -39,7 +40,8 @@ class RV_AdapterPain(var context: Context, var listOfPainItems:ArrayList<RV_Pain
         holder.constraint_layout_rv_ticket.setOnClickListener {
 
             Toast.makeText(context, holder.tv_pain_title.text, Toast.LENGTH_SHORT).show()
-            holder.iv_pain_image_color.setImageResource(R.color.red
+            holder.iv_pain_image_color.setImageResource(
+                R.color.red
             )
 
 
@@ -49,7 +51,8 @@ class RV_AdapterPain(var context: Context, var listOfPainItems:ArrayList<RV_Pain
                 val current_date = current.format(formatter)
 
                 Thread {
-                    val db = Room.databaseBuilder(context!!, RoomDB::class.java, "RoomDB").fallbackToDestructiveMigration().build()
+                    val db = Room.databaseBuilder(context!!, RoomDB::class.java, "RoomDB")
+                        .fallbackToDestructiveMigration().build()
                     try {
                         db.painDao().insert_in_painEntity(
                             PainEntity(
@@ -65,33 +68,29 @@ class RV_AdapterPain(var context: Context, var listOfPainItems:ArrayList<RV_Pain
 
                     }
 
-                    db.painDao().retrieveData_from_pain_entity().forEach{
-                        Log.i("tag",it.Current_date)
-                        Log.i("tag",it.current_month.toString())
-                        Log.i("tag",it.current_day.toString())
-                        Log.i("tag",it.PainSymptomsColumn)
-                        Log.i("tag",Calendar.getInstance().toString())
+                    db.painDao().retrieveData_from_pain_entity().forEach {
+                        Log.i("tag", it.Current_date)
+                        Log.i("tag", it.current_month.toString())
+                        Log.i("tag", it.current_day.toString())
+                        Log.i("tag", it.PainSymptomsColumn)
+                        Log.i("tag", Calendar.getInstance().toString())
 
                     }
 
 
                 }.start()
-            }
-            else{
+            } else {
 
             }
         }
 
     }
 
-    inner class MyViewHolder(itemview: View): RecyclerView.ViewHolder(itemview){
+    inner class MyViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
         var tv_pain_title = itemview.tv_problem_title
         var iv_pain_image = itemview.iv_physical_param_image
         var iv_pain_image_color = itemview.iv_physical_param_image_color
         var constraint_layout_rv_ticket = itemview.constraint_layout_rv_ticket
-
-
-
 
 
     }

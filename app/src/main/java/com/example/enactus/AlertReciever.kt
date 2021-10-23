@@ -5,12 +5,10 @@ import NotificationHelper
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.widget.Toast
 import androidx.core.app.NotificationCompat
 
 
-
-class AlertReciever: BroadcastReceiver() {
+class AlertReciever : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, p1: Intent?) {
         val notificationHelper = NotificationHelper(context)

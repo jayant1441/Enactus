@@ -17,15 +17,21 @@ import kotlinx.android.synthetic.main.recycler_view_ticket.view.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
-import kotlin.collections.ArrayList
 
 
-class RV_AdapterFluidDischarge(var context: Context, var listOfFluidItems:ArrayList<RV_FluidDataClass>): RecyclerView.Adapter<RV_AdapterFluidDischarge.MyViewHolderFluid>(){
+class RV_AdapterFluidDischarge(
+    var context: Context,
+    var listOfFluidItems: ArrayList<RV_FluidDataClass>
+) : RecyclerView.Adapter<RV_AdapterFluidDischarge.MyViewHolderFluid>() {
 
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RV_AdapterFluidDischarge.MyViewHolderFluid {
-        return(MyViewHolderFluid(LayoutInflater.from(context).inflate(R.layout.recycler_view_ticket,parent,false)))
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): RV_AdapterFluidDischarge.MyViewHolderFluid {
+        return (MyViewHolderFluid(
+            LayoutInflater.from(context).inflate(R.layout.recycler_view_ticket, parent, false)
+        ))
     }
 
     override fun getItemCount(): Int {
@@ -43,51 +49,50 @@ class RV_AdapterFluidDischarge(var context: Context, var listOfFluidItems:ArrayL
             Toast.makeText(context, holder.tv_fluid_image.text, Toast.LENGTH_SHORT).show()
 
 
-             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                 val current = LocalDateTime.now()
-                 val formatter = DateTimeFormatter.BASIC_ISO_DATE
-                 val current_date = current.format(formatter)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val current = LocalDateTime.now()
+                val formatter = DateTimeFormatter.BASIC_ISO_DATE
+                val current_date = current.format(formatter)
 
-                 Thread {
-                     val db = Room.databaseBuilder(context!!, RoomDB::class.java, "RoomDB").build()
-                     try {
-                         db.FluidDao().insert_in_FluidEntity(
-                             FluidEntity(
-                                 current_date,
-                                 Calendar.MONTH,
-                                 current_date.substring(7).toInt(),
-                                 holder.tv_fluid_image.text.toString())
-                         )
+                Thread {
+                    val db = Room.databaseBuilder(context!!, RoomDB::class.java, "RoomDB").build()
+                    try {
+                        db.FluidDao().insert_in_FluidEntity(
+                            FluidEntity(
+                                current_date,
+                                Calendar.MONTH,
+                                current_date.substring(7).toInt(),
+                                holder.tv_fluid_image.text.toString()
+                            )
+                        )
 
-                     }catch (e:Exception){
+                    } catch (e: Exception) {
 
-                         Log.d("Exception",e.toString())
+                        Log.d("Exception", e.toString())
 
-                     }
-                     db.FluidDao().retrieveData_from_fluid_entity().forEach {
-                         Log.i("tag",it.Current_date)
-                         Log.i("tag",it.current_month.toString())
-                         Log.i("tag",it.current_day.toString())
-                         Log.i("tag",it.FluidColumn)
+                    }
+                    db.FluidDao().retrieveData_from_fluid_entity().forEach {
+                        Log.i("tag", it.Current_date)
+                        Log.i("tag", it.current_month.toString())
+                        Log.i("tag", it.current_day.toString())
+                        Log.i("tag", it.FluidColumn)
 
-                     }
+                    }
 
 
-                 }.start()
+                }.start()
 
-             } else {
+            } else {
                 TODO("VERSION.SDK_INT < O")
             }
-
 
 
         }
 
 
-
     }
 
-    inner class MyViewHolderFluid(itemview: View): RecyclerView.ViewHolder(itemview){
+    inner class MyViewHolderFluid(itemview: View) : RecyclerView.ViewHolder(itemview) {
         var tv_fluid_image = itemview.tv_problem_title
         var iv_fluid_image = itemview.iv_physical_param_image
         var iv_fluid_problem_image_color = itemview.iv_physical_param_image_color
